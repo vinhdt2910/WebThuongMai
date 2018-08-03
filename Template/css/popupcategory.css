@@ -1,0 +1,149 @@
+
+#nav {padding:0px;margin:0;list-style:none;background: #fff url(../theme/default/image/gach2.png) repeat-y 35px 0px;}
+ 
+#nav ul {padding:0; margin:0; list-style:none;border-bottom:0px solid #ccc;border-top:1px solid #999;}
+
+#nav li {padding:0px;margin:0px;border-bottom:1px solid #ddd;background: #fcfcfc;}
+
+
+
+#nav li:last-child {border-bottom:0px solid #ddd;}
+#nav .onSelectedLi  {padding:0px;margin:0px;}
+#nav .onSelectedLi  a{color:#000000;}
+#nav li li {float:left;padding:0px;margin:0px;width: 100%}
+#nav li li.last {border-bottom:1px solid #b80;}
+/*#nav li li.first {border-left:0px;}
+/* a hack for  IE6 */
+* html #nav li li {float:left;}
+
+#nav li a {display:block;padding: 11px 0px 11px 10px;color: #e65c13;text-transform: uppercase;text-decoration:none;white-space:nowrap;font-size: 11px;font-weight: bold;font-family: Arial;}
+
+
+	#nav li a.down {background:url(../theme/default/images/down.gif) no-repeat right center;}
+
+#nav li li a {display:block;  font-weight:normal;}
+
+#nav li li a.fly {background:url(../theme/default/images/fly.gif) no-repeat right center;}
+
+#nav li:hover {position:relative; z-index:300;background: #e65c13; }
+#nav li:hover :after { 
+  	left: 100%;
+	top: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	z-index: 501;
+    }
+   
+#nav li:hover :after {border-left-color: #e65c13;border-width: 20px;margin-top: -20px;}
+#nav li:nth-child(2):hover {background: #000000; }
+#nav li:nth-child(2):hover :after {border-left-color: #000000;}
+#nav li:nth-child(3):hover {background: #337ab7; }
+#nav li:nth-child(3):hover :after {border-left-color: #337ab7;}
+#nav li:nth-child(4):hover {background: #C516A0; }
+#nav li:nth-child(4):hover :after {border-left-color: #C516A0;}
+#nav li:nth-child(5):hover {background: #ED1C2A; }
+#nav li:nth-child(5):hover :after {border-left-color: #ED1C2A;}
+#nav li:nth-child(6):hover {background: #00adba; }
+#nav li:nth-child(6):hover :after {border-left-color: #00adba;}
+#nav li:nth-child(7):hover {background: #d5ba00; }
+#nav li:nth-child(7):hover :after {border-left-color: #d5ba00;}
+#nav li:nth-child(8):hover {background: #412c8c; }
+#nav li:nth-child(8):hover :after {border-left-color: #412c8c;}
+
+#nav li.cssplay_hover {position:relative; z-index:300;}
+#nav li.cssplay_hover a {color:#000000;}
+
+#nav li li a {color:#e65c13;}
+#nav li li.cssplay_hover a {color:#fff; background-color:#d5aa00;}
+
+#nav li:hover ul {left: 218px;top:-2px;z-index:500;width: 655px;background: #fff;border:1px solid #ddd;padding-left:15px;position:absolute;}
+#nav li:hover ul li { top:0px; z-index:500;border: 0px solid #ccc; background: #fff;padding:0px;  }
+#nav li:hover ul li a{ background: #fff;  padding-top: 5px;padding-bottom: 5px; font-size: 12px; }
+#nav li:hover ul li a:before{ display: none; }
+
+#nav li.cssplay_hover ul {left:0; top:33px; z-index:500;}
+
+#nav ul {position:absolute; left:-9999px; top:-9999px;}
+* html #nav ul {width:2px;}
+/* it could have been this simple if all browsers understood */
+/* show next level */
+#nav li:hover li:hover > ul {left:-5px; margin-left:100%; top:-1px; z-index:500;}
+/* keep further levels hidden */
+#nav li:hover > ul ul {position; left:-9999px; top:-9999px;  }
+/* show path followed */
+#nav li:hover > a {color:#fff;border-right:0px;}
+#nav li:hover > a:before {color:#fff;}
+
+#nav li li:hover > a {border:0px;color:#000000;background: #fff}
+#nav li li:hover > a:before {border:0px;color:#000000;}
+a.onSelectedLi  { color:#ff4400;}
+
+
+/* but IE5.x and IE6 need this lot to style the flyouts*/
+#nav li.cssplay_hover li.cssplay_hover a,
+#nav li.cssplay_hover li.cssplay_hover li.cssplay_hover a,
+#nav li.cssplay_hover li.cssplay_hover li.cssplay_hover li.cssplay_hover a,
+#nav li.cssplay_hover li.cssplay_hover li.cssplay_hover li.cssplay_hover li.cssplay_hover a,
+#nav li.cssplay_hover li.cssplay_hover li.cssplay_hover li.cssplay_hover li.cssplay_hover li.cssplay_hover a
+{color:#fff; background-color:#d5aa00;}
+
+#nav li.cssplay_hover li.cssplay_hover li a,
+#nav li.cssplay_hover li.cssplay_hover li.cssplay_hover li a,
+#nav li.cssplay_hover li.cssplay_hover li.cssplay_hover li.cssplay_hover li a,
+#nav li.cssplay_hover li.cssplay_hover li.cssplay_hover li.cssplay_hover li.cssplay_hover li a,
+{color:#000; background-color:#e5ba00;}
+
+/* show next level */
+#nav li.cssplay_hover li.cssplay_hover ul,
+#nav li.cssplay_hover li.cssplay_hover li.cssplay_hover ul,
+#nav li.cssplay_hover li.cssplay_hover li.cssplay_hover li.cssplay_hover ul,
+#nav li.cssplay_hover li.cssplay_hover li.cssplay_hover li.cssplay_hover li.cssplay_hover ul
+{left:100%; margin-left:-5px; top:-1px;}
+
+/* keep further levels hidden */
+#nav li.cssplay_hover ul ul,
+#nav li.cssplay_hover li.cssplay_hover ul ul,
+#nav li.cssplay_hover li.cssplay_hover li.cssplay_hover ul ul,
+#nav li.cssplay_hover li.cssplay_hover li.cssplay_hover li.cssplay_hover ul ul
+{position:; left:-9999px; top:-9999px;}
+
+#nav li a:before {
+	content: "\f28e";
+	font-family: FontAwesome;
+	padding-right: 10px;
+	color: #666;
+	font-size: 16px;
+	margin-right: 0px;
+	}
+	#nav li a:after {
+	content: "\f054";
+	font-family: FontAwesome;
+	padding-right: 10px;
+	color: #e65c13;
+	font-size: 14px;
+	font-weight: normal;
+	float: right;
+	position: relative;
+	padding-top: 3px;
+	margin-right: -3px;
+	display: none;
+	}
+#nav li:nth-child(1) a:before { content: "\f0a2";}
+#nav li:nth-child(2) a:before { content: "\f123";}
+#nav li:nth-child(3) a:before { content: "\f06b";}
+#nav li:nth-child(4) a:before { content: "\f00c";}
+#nav li:nth-child(5) a:before { content: "\f14e";}
+#nav li:nth-child(6) a:before { content: "\f111";}
+#nav li:nth-child(7) a:before { content: "\f135";}
+#nav li:nth-child(8) a:before { content: "\f067";}
+
+ 
+/* menu lazada */
+
+.headhowtobook{padding: 12px;padding-top: 16px;padding-bottom: 14px;padding-right: 10px;text-align: left;cursor: pointer;text-transform: uppercase;z-index: 9999;position: relative;background: #e65c13 url(../theme/default/image/menuld.png) no-repeat scroll 8px 15px;padding-left: 45px;}
+
+.headhowtobook a{color: #fff;font-size: 15px;}

@@ -1,0 +1,34 @@
+#search {
+	position: relative;
+	
+}
+#search_results {
+
+	position: absolute;
+	top: 50px;
+
+	list-style-type: none;
+	z-index: 112;
+	text-align: left;
+}
+#search_results li {
+	padding: 3px 0px;
+	margin-left: 10px;
+	background-color: #fff;
+}
+#search_results a,
+#search_results a:visited,
+#search_results a:hover {
+	text-decoration: none;
+	font-size: 14px;
+	color: #64A500;
+}
+#search_results a:hover {
+	color: #1255A0;
+}
+#search_results li:hover {
+	background-color: #ff0;
+}
+#search_results .highlighted {
+	background-color: #ff0;
+}

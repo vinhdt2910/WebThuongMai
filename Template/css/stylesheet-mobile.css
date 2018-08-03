@@ -1,0 +1,388 @@
+@media only screen and (max-width : 1230px) {
+	
+html, body {overflow-x: hidden;width: 100%;margin: 0 auto;}
+.munemb{display: none}
+#container, #content , .moduleheader {width: 100%;}
+#column_left {display: none}
+#column_right {display: none}
+#content  {width: 96%;margin: 0 auto;}
+.wraper4  {width: 96%;margin: 0 auto;}
+.wraper5, .wraper6  {width: 96%;margin: 0 auto;padding:2%}
+.wraper2  {
+    width: 100%;
+    margin: 0 auto;
+    height: 0;
+    position: relative;
+    height: auto;
+    }
+
+    .xanhga {
+    background: #fff;
+}
+.product-info {
+   
+    margin-top: 0px;
+}
+.module_topheader{width: 100%;}
+.moduleheader{width: 100%;padding-bottom: 0px;}
+.module_middle_top{width: 100%;}
+.module_middle_end{width: 100%;}
+.module_danhmucface{width: 100%;}
+.module_footermenu{width: 100%;line-height: 20px;}
+.module_middle_end{width: 100%;}
+.headermn{width: 100%;}
+.full_description {
+    width: 100%;
+    text-align: justify;
+}
+.product-infoo img, .full_description img{
+    width: 100%;
+    height: auto;
+}
+.breadcrumb {
+    margin: 10px;
+    margin-top: 0px;
+}
+#breadcrumb {
+    height: auto;
+    line-height: 16px;
+    color: #666;
+    font-size: 11px;
+    margin-left: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+.toptop960{width: 100%;}
+.toptop {
+    text-align: center;
+	display: block;
+}
+.topheader {
+    text-align: center;
+}
+.logo {
+	display: block;
+	vertical-align: top;
+	padding-top: 10px;
+	padding-right: 0px;
+	width: 80%;
+	margin: 0 auto;
+} 
+
+.topheadercenter {
+    display: block;
+    vertical-align: top;
+    padding-top: 0px;
+    width: 100%;
+    font-size: 0px;
+    text-align: center;
+    margin-left: 0px;
+}
+
+.topheaderright {
+    display: none;;
+}
+.categorywallandfile8 .cw_col_c {
+    padding-top: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.dmsp {text-align: center;}
+#categorywallandfile2 .cw_col_c ul{margin:0; padding:0; font-size: 0px; display:block; text-align: center; overflow:hidden;line-height: 20px;}
+#categorywallandfile2 .cw_col_c ul li{list-style: none;display: inline-block;vertical-align: top;width: 180px;margin-right: 6px;margin-left: 6px}	
+#categorywallandfile2 .cw_col_c ul li:nth-child(3n+3) {margin-right: 6px;margin-left: 6px}
+.duhovkool {
+    text-align: center;
+    font-size: 0px;
+    margin-top: 0px;
+    padding-top: 0px;
+    margin-bottom: 20px;
+}
+.duhovkool .uli {
+    width: 23%;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+.menu{display : none}
+.danhmucface {
+    font-size: 0px;
+    padding-top: 0px;
+}
+#footer {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-top: 0px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.footer11 {
+    display: block;
+    vertical-align: top;
+    width: 100%;
+    margin-left: 0%;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.footer12{display: block;vertical-align: top;width: 100%;
+margin-left: 0px;text-align: center;}
+.footer11 li{display: inline-block;vertical-align: top;width: 32%;margin: 0px;padding: 0px;text-transform: uppercase;}
+.footer11 li li{display: block;vertical-align: top;width: 100%;margin: 0px;padding: 0px;text-transform: uppercase;}
+
+.informationfooter {
+    text-align: center;
+    font-size: 0px;
+    padding-top: 0px;
+}
+.informationfooter ul {
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+}
+.powered {
+    display: block;
+    width: 100%;
+    vertical-align: top;
+    margin-left: 0%;
+    font-size: 14px;
+    text-align: center;
+    }
+.welcome { }
+.welcome blockquote {
+    width: 29%;
+    float: left;
+    margin: 0px;
+    margin-right: 2%;
+    margin-left: 2%;
+    line-height: 20px;
+}
+.newletter  {display: none; }	
+
+.onecheckout {
+	width:100%;
+	float:none;
+	text-align:left;
+}
+.onecheckoutmid {
+	width:100%;
+	float:none;
+	margin:0%;
+	text-align:left;
+}
+.topmxh{
+    display: block;
+    width: 100%;
+    vertical-align: top;
+    text-align: center;
+}
+.toplink{width: 690px;display: none;}
+.toplink a{margin: 0px; padding: 0px;    font-size: 16px;}
+
+.html2{text-align: center;margin-top: 5px;margin-bottom: 10px;}
+.spt{display: inline-block;width:40%; margin-bottom: 10px;}
+.spl{display: inline-block;width: 58%;margin-left: 2%;vertical-align: top;}
+.spl h1 {padding: 0px;margin: 0px;color: #64A500;font-family: Condensed;font-size: 18px;font-weight: normal;text-transform: uppercase;margin-bottom: 10px;}
+.anhlon{border: 0px solid #E4E4E4;	padding: 1%;width:98%; background: #eee;}
+.image-additional{padding-top: 5px;margin-bottom: 20px;text-align: left;}
+.image-additional li{display: inline-block;text-align: center;margin-right: 2%;margin-bottom: 10px;}
+.image-additional img{border: 0px solid #DDDDDD;padding: 2%;background: #eee;width:96%;}
+
+.danhmuc {
+    margin-bottom: 10px;
+    width: 100%;
+    font-size: 0px;
+}
+.middletopc {
+    display: block;
+    margin-right: 0px;
+    width: 100%;
+    vertical-align: top;
+    margin-left: 0px;
+    margin-top: 5px;
+}
+.middletopr {
+    display: block;
+    width: 100%;
+    vertical-align: top;
+    text-align: justify;
+     margin-top: 10px;
+}
+.fb{display: inline-block;
+    width: 50%;
+    vertical-align: top;}
+.imagelinks2 {
+    display: inline-block;
+    width: 50%;
+    vertical-align: top;
+
+}
+.imagelinks2 img {
+    width: 100%;
+    height: auto;
+        padding-top: 0px;
+}
+
+.column_middle_end .middle{height: auto;}
+.middleend1{display:block; margin-right: 0px;width: 100%;     font-size: 14px;   vertical-align: top; }
+.middleend2{display:block; margin-right: 0px;width: 100%;       vertical-align: top; }
+.middleend3{display:block; margin-right: 0px;width: 100%;       vertical-align: top; }
+.googlecong{display:block;width: 100%;margin: 0px;margin-bottom: 10px;text-align: center;vertical-align: top;}
+.topmxh2{display: none}
+#search{padding-top: 0px;}
+.topsearch {
+    vertical-align: top;
+    display: block;
+    width: 96%;
+    padding: 2%;
+    margin: 0 auto;
+    background: #82d87f;
+}
+
+.sanpham, .dmsp .sanpham{display: inline-block; width: calc(25% - 41px); ;vertical-align: top;}
+.labelnew{position: absolute;margin-top: -10px;margin-left: -10px;background: url(../image/label/new.png) no-repeat;width: 30px;height: 30px;z-index: 99;background-size: 30px;}
+.goict{display: block;background: #000000;text-align: center;padding-top: 10px;padding-bottom: 10px;position: relative;bottom: 0px;width: 100%;position: fixed;z-index: 9999999999999999999999999;}
+.goict a{font-size: 20px; color: #fff }
+.dmcon{display: none}
+
+.main-menu {
+	margin-top: 0px;
+	display: block;
+}
+.imagelinks41, .imagelinks42{float: none;width: 100%;margin-right: 0%;}
+.categorywallandfile8 .cw_col .topct8 h2{float: none;width: 100%;line-height: 30px;padding-top: 5px;}
+.categorywallandfile8 .cw_col .topct8 {    height: auto;}
+.categorywallandfile8 .cw_col .topct8 ul {margin-top: 0px;text-align: center;float: none;width: 100%;}
+.categorywallandfile8 .cw_col .topct8 li {padding-left: 1%;line-height: 20px;padding-right: 1%;padding-top: 1%;padding-bottom: 1%;border-left: 0px solid #afd8ad;margin-left: -1px;text-align: center;width: auto;vertical-align: top;}
+
+.imagelinks41{float: none;width: 100%;margin-right: 0%;}
+.imagelinks4 .imgphai{float: none;width: 100%;padding-top: 20px;overflow: hidden;}
+.imagelinks41top{width: 100%;}
+.imagelinks4 {
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+.welpow {
+    float: none;
+    width: 100%;
+    padding-top: 0px;
+    }
+.footermenu {
+    margin-top: 0px;
+    text-align: left;
+    float: none;
+    width: 100%;
+    margin-right: 0%;
+}
+.youtube  iframe, object, embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%;}
+ .youtube{ padding-top: 0px;
+    padding: 11px; padding-bottom: 0px;   margin-bottom: 0px;
+	position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%;
+	
+}
+.categorywallandfile9 .cw_col .topct8 {
+  
+    position: relative;
+}
+.categorywallandfile9 .cw_col .topct8 h2 {
+    float: none;
+    width: 100%;
+}
+.categorywallandfile9 .cw_col .topct8 ul {
+    list-style: none;
+    float: left;
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+    margin-top: 9px;
+	display: block;
+}
+.categorywallandfile9 .cw_col .topct8 li {
+    list-style: none;
+    display: inline-block;
+    padding-left: 5px;
+    line-height: 20px;
+    padding-right: 5px;
+    padding-top: 0px;
+    padding-bottom: 10px;
+    border-left: 0px solid #afd8ad;
+    margin-left: -1px;
+    text-align: center;
+}
+
+}
+
+@media only screen and (max-width : 920px) {
+	.giamoi {    font-size: 18px;}
+	.categorywallandfile8 .cw_col .topct8 li {padding-left: 1%;line-height: 20px;padding-right: 1%;padding-top: 1%;padding-bottom: 1%;border-left: 0px solid #afd8ad;margin-left: -1px;text-align: center;width: 23%;vertical-align: top;}
+
+}
+
+@media only screen and (max-width : 720px) {
+.spt{display: block;width:100%; margin-bottom: 10px;}
+.spl{display: block;width: 100%;margin-left: 0%;vertical-align: top;}
+.spl h1 {padding: 0px;margin: 0px;color: #64A500;font-family: Condensed;font-size: 18px;font-weight: normal;text-transform: uppercase;margin-bottom: 10px;}
+.anhlon{border: 0px solid #E4E4E4;	padding: 1%;width:98%; background: #eee;}
+.image-additional{padding-top: 5px;margin-bottom: 20px;text-align: left;}
+.image-additional li{display: inline-block;text-align: center;margin-right: 2%;margin-bottom: 10px;}
+.image-additional img{border: 0px solid #DDDDDD;padding: 2%;background: #eee;width:96%;}
+
+.footer11 li{display: inline-block;vertical-align: top;width: 48%;margin: 0px;padding: 0px;text-transform: uppercase;}
+.imagelinks4 li {float: none;width: 100%;margin-right: 0%;}
+.sanpham, .dmsp .sanpham{display: inline-block;width: calc(50% - 21px);vertical-align: top;padding: 10px;padding-bottom: 0px;}
+.dmcon {
+    display: none;
+}
+.welcome blockquote {
+    width: 100%;
+    float: none;
+    margin: 0px;
+    margin-right: 0%;
+    margin-left: 0%;
+    line-height: 20px;
+}
+	.categorywallandfile8 .cw_col .topct8 li {padding-left: 1%;line-height: 20px;padding-right: 1%;padding-top: 1%;padding-bottom: 1%;border-left: 0px solid #afd8ad;margin-left: -1px;text-align: center;width: 30%;vertical-align: top;}
+
+}
+@media only screen and (max-width : 520px) {
+	.tabs a {	font-size: 0px;}
+	.goict a{font-size: 16px; color: #fff }
+
+	.tabs a:before {content: "NEW";    padding-right: 0px;font-size: 15px}
+	.tabs a:nth-child(2):before {content: "BEST";    padding-right: 0px;font-size: 15px}
+	.tabs a:nth-child(3):before {content: "FEA";    padding-right: 0px;font-size: 15px}
+.footer11 li{display: block;vertical-align: top;width: 100%;margin: 0px;padding: 0px;text-transform: uppercase;}
+.categorywallandfile8 .cw_col .topct8 li {padding-left: 1%;line-height: 20px;padding-right: 1%;padding-top: 1%;padding-bottom: 1%;border-left: 0px solid #afd8ad;margin-left: -1px;text-align: center;width: 48%;vertical-align: top;}
+
+}
+
+ 
+@media only screen and (max-width : 361px) {
+.toptop a {margin-left: 3px;    font-size: 13px;}
+.goict a{font-size: 14px; color: #fff }
+
+.fb{display: none}
+.imagelinks2 {
+    display: block;
+    width: 100%;
+    vertical-align: top;
+}
+.gia {
+   
+    text-align: center;
+  
+}
+.giamoi, .giacu  {    font-size: 14px;}
+
+
+
+.labelspecial{position: absolute;margin-top: -5px;right: 10px;top: 10px;width: 25px;height: 25px;line-height: 25px;color: #fff;font-size: 12px;font-weight: normal;z-index: 99;margin-left: 0px;}
+
+}
+
