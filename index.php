@@ -42,14 +42,13 @@ include('connect.php')
                     <a href="lien-he-vi"><i class="fa fa-envelope"></i> Liên hệ</a>
                     <?php
                     if (isset($_SESSION['userid'])) {
-                        if (isset($_SESSION['name'])) echo $_SESSION['name'] ;
+                       
                         ?>
-                      <a href="index.php?route=logout" onclick="history.back(-1)" id="tab_logout"><i class="fa fa-user-secret"></i> Đăng xuất</a>
+                     <a href="" id="tab_logout"> <i class="fa fa-user-secret"></i><?php echo $_SESSION['name']; ?>|Đăng xuất</a>
                         <?php
                     }
                     else{ ?>
                         <a href="index.php?route=login" id="tab_login"><i class="fa fa-user-secret"></i> Đăng nhập</a>
-                        
                     <?php
                     }
                     ?>
@@ -541,7 +540,21 @@ include('connect.php')
             })();
         </script>
         <!--End of Tawk.to Script-->
+<script>
+ $("#tab_logout").on("click", function () {
+      
+        $.ajax({
+            url: "logout_action.php",
+            method: "POST",
+            success: function (response) {
+                if (response == "1") {// kiem tra du lieu ra
+                 window.location="index.php";    
+                } 
+            }
+        });
 
+    });
+</script>
 
 
         <script src="Template/js/livesearch.js"></script>

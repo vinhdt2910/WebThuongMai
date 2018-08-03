@@ -1,4 +1,3 @@
-
 <div class="top">
     <div class="left"></div>
     <div class="right"></div>
@@ -7,7 +6,6 @@
     </div>
 </div>
 <div class="middle">
-
     <div style="margin-bottom: 10px; display: inline-block; width: 100%;">
         <div style="float: left; display: inline-block; width: 49%;">
             <b style="margin-bottom: 2px; display: block;">Bạn là khách hàng mới.</b>
@@ -99,3 +97,5 @@
 
     });
 </script>
+                
+                <!--énd-->

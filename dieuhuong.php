@@ -7,8 +7,7 @@
             include('login.php');
         else if ($function == 'logout')
         {
-            session_destroy();
-            include('home.php');
+           
         }
     }
     else include('home.php');
