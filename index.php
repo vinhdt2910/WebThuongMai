@@ -1,4 +1,4 @@
-﻿<?php 
+﻿<?php
 session_start();
 include('connect.php')
 ?>
@@ -14,7 +14,7 @@ include('connect.php')
     <!-- livesearch -->
     <link href="Template/css/livesearch.css" rel="stylesheet" />
     <!-- end livesearch -->
-	<link href="Template/css/alertphone.css" rel="stylesheet" />
+    <link href="Template/css/alertphone.css" rel="stylesheet" />
     <link href="Template/css/default.css" rel="stylesheet" />
     <link href="Template/css/component.css" rel="stylesheet" />
     <link href="Template/css/stylesheet-mobile.css" rel="stylesheet" />
@@ -42,17 +42,17 @@ include('connect.php')
                     <a href="lien-he-vi"><i class="fa fa-envelope"></i> Liên hệ</a>
                     <?php
                     if (isset($_SESSION['userid'])) {
-                       
-                        ?>
-                     <a href="" id="tab_logout"> <i class="fa fa-user-secret"></i><?php echo $_SESSION['name']; ?>|Đăng xuất</a>
-                        <?php
+
+                    ?>
+                    <a href="" id="tab_logout"> <i class="fa fa-user-secret"></i><?php echo $_SESSION['name']; ?>|Đăng xuất</a>
+                    <?php
                     }
                     else{ ?>
-                        <a href="index.php?route=login" id="tab_login"><i class="fa fa-user-secret"></i> Đăng nhập</a>
+                    <a href="index.php?route=login" id="tab_login"><i class="fa fa-user-secret"></i> Đăng nhập</a>
                     <?php
                     }
                     ?>
-                   
+
                     <a href="index.php?route=checkout/shipping" id="tab_checkout"><i class="fa fa-usd"></i> Thanh toán</a>
                 </div>
 
@@ -82,16 +82,16 @@ include('connect.php')
                             </div>
                         </div>
                     </div>
-                     <div>
-                                <a href="tel:+841673293712" title="Tư vấn khách hàng">
-                                    <div class="alo-phone alo-green alo-show">
-                                        <div class="alo-ph-circle"></div>
-                                        <div class="alo-ph-circle-fill"></div>
-                                        <div class="alo-ph-img-circle">
-                                            <i class="fa fa-phone"></i>
-                                        </div>
-                                    </div>
-                                </a>
+                    <div>
+                        <a href="tel:+841673293712" title="Tư vấn khách hàng">
+                            <div class="alo-phone alo-green alo-show">
+                                <div class="alo-ph-circle"></div>
+                                <div class="alo-ph-circle-fill"></div>
+                                <div class="alo-ph-img-circle">
+                                    <i class="fa fa-phone"></i>
+                                </div>
+                            </div>
+                        </a>
 
                     </div>
                 </div>
@@ -110,18 +110,19 @@ include('connect.php')
                                     <a class="inactive" href="/"><i class="fa fa-home"></i></a>
                                 </li>
                                 <?php
-                    $s = "SELECT * FROM book_category WHERE  tinhtrang='1'";
-                    $re = mysqli_query($conn, $s);
-                   
-                    while ($r = mysqli_fetch_array($re)) {
-                        ?>
-                        <li><a class="inactive" href="bookcategory.php">
-                            <?php echo $r['Tenloai']; ?>
-                        </a>
-                    </li>
-                        <?php
-                    }
-                    ?>
+                                $s = "SELECT * FROM book_category WHERE  tinhtrang='1'";
+                                $re = mysqli_query($conn, $s);
+
+                                while ($r = mysqli_fetch_array($re)) {
+                                ?>
+                                <li>
+                                    <a class="inactive" href="bookcategory.php">
+                                        <?php echo $r['Tenloai']; ?>
+                                    </a>
+                                </li>
+                                <?php
+                                }
+                                ?>
 
                             </ul>
                         </div>
@@ -146,6 +147,20 @@ include('connect.php')
         </div>
     </header>
     <script type="text/javascript">
+        $("#tab_logout").on("click", function () {
+            $.ajax({
+                url: "logout_action.php",
+                method: "POST",
+                data:{},
+                success: function (response) {
+                   
+                    if (response == "1") {// kiem tra du lieu ra
+                        window.location = "index.php";
+                    }
+                }
+            });
+
+        });
         //<!--
         function getURLVar(urlVarName) {
             var urlHalves = String(document.location).toLowerCase().split('?');
@@ -288,28 +303,26 @@ include('connect.php')
                     <div class="box">
                         <div style="border:1px solid #ddd;">
                             <ul id="nav">
-                                 <?php
-                    $s = "SELECT * FROM book_category WHERE  tinhtrang='1'";
-                    $re = mysqli_query($conn, $s);
-                   
-                    while ($r = mysqli_fetch_array($re)) {
-                        ?>
-                        <li class="" ><a href="bookcategory.php">
-                            <?php echo $r['Tenloai']; ?>
-                        </a>
-                    </li>
-                        <?php
-                    }
-                    ?>
+                                <?php
+                                $s = "SELECT * FROM book_category WHERE  tinhtrang='1'";
+                                $re = mysqli_query($conn, $s);
 
-
-                               
+                                while ($r = mysqli_fetch_array($re)) {
+                                ?>
+                                <li class="">
+                                    <a href="bookcategory.php">
+                                        <?php echo $r['Tenloai']; ?>
+                                    </a>
+                                </li>
+                                <?php
+                                }
+                                ?>
                             </ul>
                         </div>
                     </div>
 
                 </div>
-                
+
                 <div class="box">
                     <div class="html1tc">
                         <div class="top">Hình ảnh</div>
@@ -336,7 +349,7 @@ include('connect.php')
                     <div class="top"><img src="Template/theme/default/image/special.png" />Thống kê truy cập</div>
                     <div class="middle" style="text-align: center;">
                         <div style="font-size:16px;background-color:;color:;">00215689</div>
-                       
+
                     </div>
                 </div>
             </aside>
@@ -345,9 +358,9 @@ include('connect.php')
                 <?php
                 include('dieuhuong.php');
                 ?>
-                
+
                 <!--énd-->
-               
+
                 <div style="clear: both"> </div>
             </section>
         </div>
@@ -391,7 +404,7 @@ include('connect.php')
                         <div class="top"><img src="Template/theme/default/image/imagelinks.png" /> Video Clip</div>
                         <div class="middle">
 
-                            <div class="youtube" id="ytapiplayer"><iframe allowfullscreen="" frameborder="0" height="210" src="http://www.youtube.com/embed/IJ_ZF1WmBIk" width="100%"></iframe></div>
+                            <div class="youtube" id="ytapiplayer"><iframe allowfullscreen="" frameborder="0" height="290" src="http://www.youtube.com/embed/IJ_ZF1WmBIk" width="100%"></iframe></div>
 
 
                         </div>
@@ -411,7 +424,8 @@ include('connect.php')
                          loadNewVideo(change,0)*/
                         document.form1.submit();
                     }
-                </script>        <div class="middleend3">
+                </script>        
+                <div class="middleend3">
                     <div class="box">
                         <div class="top">
                             <img src="Template/theme/default/image/imagelinks.png" />
@@ -434,7 +448,7 @@ include('connect.php')
                                      data-href="https://www.facebook.com/tusachthieunhi/"
                                      data-tabs="timeline"
                                      data-width="340"
-                                     data-height="200"
+                                     data-height="290"
                                      data-small-header="false"
                                      data-adapt-container-width="true"
                                      data-hide-cover="false"
@@ -538,23 +552,11 @@ include('connect.php')
                 s1.setAttribute('crossorigin', '*');
                 s0.parentNode.insertBefore(s1, s0);
             })();
+
+
         </script>
         <!--End of Tawk.to Script-->
-<script>
- $("#tab_logout").on("click", function () {
-      
-        $.ajax({
-            url: "logout_action.php",
-            method: "POST",
-            success: function (response) {
-                if (response == "1") {// kiem tra du lieu ra
-                 window.location="index.php";    
-                } 
-            }
-        });
 
-    });
-</script>
 
 
         <script src="Template/js/livesearch.js"></script>
