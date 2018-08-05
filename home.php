@@ -1,3 +1,29 @@
+<style>  
+        .breadcrumb {
+            display: none;
+        }
+
+        .detailhowtobook {
+            display: block;
+        }
+
+        .headline {
+            display: block;
+            width: 1200px;
+            margin: 0 auto;
+            margin-top: -30px;
+            position: absolute;
+        }
+
+        #sign_box {
+            position: relative;
+            display: block;
+        }
+
+       #column_left {
+            margin-top: -56px;
+        } 
+    </style>
 <div style="font-size:0px">
     <div class="middletopc">
         <link href="Template/css/owl-carousel/owl.carousel.css" rel="stylesheet" />

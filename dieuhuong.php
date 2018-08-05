@@ -1,12 +1,14 @@
 <?php
-    $function = '';
+    $route = '';
+    $type='';
     if (isset($_GET['route'])) {
-        $function = $_GET['route'];
+        $route = $_GET['route'];
         // var_dump($function) ; exit();
-        if ($function == 'login')
+        if ($route == 'login')
             include('login.php');
-        else if ($function == 'logout')
+        else if ($route == 'cate')
         {
+            include('category.php');
            
         }
     }

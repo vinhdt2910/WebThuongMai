@@ -116,9 +116,9 @@ include('connect.php')
                                 while ($r = mysqli_fetch_array($re)) {
                                 ?>
                                 <li>
-                                    <a class="inactive" href="bookcategory.php">
-                                        <?php echo $r['Tenloai']; ?>
-                                    </a>
+                                <a title="<?php echo $r['Tenloai']; ?>" href="index.php?route=cate&type=<?php echo $r['Maloaisach']; ?>">
+                                <?php echo $r['Tenloai']; ?>
+                                </a>
                                 </li>
                                 <?php
                                 }
@@ -140,6 +140,7 @@ include('connect.php')
                 <div class="breadcrumb">
                     <div class="center">
                         <div id="breadcrumb">
+                        
                         </div>
                     </div>
                 </div>
@@ -183,6 +184,11 @@ include('connect.php')
             return urlVarValue;
         }
 
+        // Active submenu item
+        $('.main-navigation li a[href="' + this.location.pathname + '"]').parent().addClass('onSelectedLi');
+         // Active submenu item
+         $('#nav li a[href="' + this.location.pathname + '"]').parent().addClass('onSelectedLi');
+        
         $(document).ready(function () {
             route = getURLVar('route');
 
@@ -247,32 +253,7 @@ include('connect.php')
         });
     </script>
     <h1 style="display: none">Thanhhabooks</h1>
-    <style>
-        .breadcrumb {
-            display: none;
-        }
-
-        .detailhowtobook {
-            display: block;
-        }
-
-        .headline {
-            display: block;
-            width: 1200px;
-            margin: 0 auto;
-            margin-top: -30px;
-            position: absolute;
-        }
-
-        #sign_box {
-            position: relative;
-            display: block;
-        }
-
-        #column_left {
-            margin-top: -56px;
-        }
-    </style>
+   
     <script type="text/javascript">
         $(document).ready(function () {
             $(".sign_in").live("hover", function () {
