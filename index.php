@@ -310,9 +310,8 @@ include('connect.php')
                                 while ($r = mysqli_fetch_array($re)) {
                                 ?>
                                 <li class="">
-                                    <a href="bookcategory.php">
-                                        <?php echo $r['Tenloai']; ?>
-                                    </a>
+                                <a title="<?php echo $r['Tenloai']; ?>" href="index.php?route=cate&type=<?php echo $r['Maloaisach']; ?>"><?php echo $r['Tenloai']; ?>
+                                </a>
                                 </li>
                                 <?php
                                 }

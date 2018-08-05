@@ -84,7 +84,7 @@
                         <div>
                             <div class="image">
 
-                                <a title="<?php echo $r2['Tensach']; ?>" href="index.php?route=book&type=<?php echo $r2['Masach']; ?>"><img title="<?php echo $r2['Tensach']; ?>" style="width: 100%" src="image//<?php echo $r2['anh'] ?>" alt="<?php echo $r2['Tensach']; ?>" /></a>
+                                <a title="<?php echo $r2['Tensach']; ?>" href="index.php?route=book&type=<?php echo $r2['Masach']; ?>"><img title="<?php echo $r2['Tensach']; ?>" style="width: 100%" src="image/<?php echo $r2['anh'] ?>" alt="<?php echo $r2['Tensach']; ?>" /></a>
                             </div>
                             <div class="tensp">
                                 <a title="<?php echo $r2['Tensach']; ?>"

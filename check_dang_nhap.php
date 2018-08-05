@@ -2,8 +2,8 @@
 
 session_start();
 include('connect.php');
-	$username = $_POST["username"];
-    $password = md5($_POST["password"]);
+	$username = $_POST["username"].trim();
+    $password = md5($_POST["password"].trim());
     
      $sql1 = "select * from user where Email = '$username' and Trangthai = 1 ";
 
