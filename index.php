@@ -53,7 +53,7 @@ include('connect.php')
                     }
                     ?>
 
-                    <a href="index.php?route=checkout/shipping" id="tab_checkout"><i class="fa fa-usd"></i> Thanh toán</a>
+                    
                 </div>
 
                 <div class="topmxh">
@@ -107,7 +107,7 @@ include('connect.php')
                             <div class="nav-responsive" style="display: none;"><span>Menu</span><div class="expandable"></div></div>
                             <ul class="main-navigation">
                                 <li>
-                                    <a class="inactive" href="/"><i class="fa fa-home"></i></a>
+                                    <a class="inactive" href="index.php"><i class="fa fa-home"></i></a>
                                 </li>
                                 <?php
                                 $s = "SELECT * FROM book_category WHERE  tinhtrang='1'";
@@ -123,7 +123,20 @@ include('connect.php')
                                 <?php
                                 }
                                 ?>
+                                <li>
+                                <?php
+                    if (isset($_SESSION['userid'])) {
 
+                    ?>
+                    <a href="" id="tab_logout"> <?php echo $_SESSION['name']; ?>|Đăng xuất</a>
+                    <?php
+                    }
+                    else{ ?>
+                    <a href="index.php?route=login" id="tab_login">Đăng nhập</a>
+                    <?php
+                    }
+                    ?>
+                                </li>
                             </ul>
                         </div>
 

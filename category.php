@@ -27,12 +27,13 @@ if (isset($type)) {
 
        
         <?php
-                  
-                   
-                    $sbook = "SELECT * FROM `book` WHERE Loaisach = '".$type."' and trangthai ='1'";
+                
+                $sbook = "SELECT * FROM `book` WHERE Loaisach = '".$type."' and trangthai ='1'";
                     //var_dump($sbook) ; exit();
                     $re2 = mysqli_query($conn, $sbook);
                     while ($r2 = mysqli_fetch_array($re2)) {
+                        $today = date("Y-m-d");
+                        $ck_date=date($r2['Thoigianck']);
                 ?>
                     <div class="sanpham xam">
                         <div>
@@ -45,15 +46,25 @@ if (isset($type)) {
                                 href="index.php?route=book&type=<?php echo $r2['Masach']; ?>"><?php echo $r2['Tensach']; ?></a>
                             </div>
                             <div class="gia">
-                                <div class="giacu"><?php echo $r2['Gia'],0; ?> đ</div>
-                                <div class="giamoi"><?php echo $r2['Gia'],0; ?> đ</div>
+                                <div class="giacu"><?php echo number_format($r2['Gia']); ?>đ</div>
+                                <?php if(strtotime($today)<strtotime($ck_date)){
+                                ?>
+                                <div class="giamoi"><?php echo number_format($r2['Gia']-($r2['Gia']*$r2['Chietkhau']/100)); ?>đ</div>
+                            <?php } else { ?>
+                                <div class="giamoi"><?php echo number_format($r2['Gia']); ?>đ</div>
+                             <?php } ?>
                             </div>
                         </div>
                         <div class="chitietvsmua">
                             <div class="chitiet"><a title="<?php echo $r2['Tensach']; ?>" href="index.php?route=book&type=<?php echo $r2['Masach']; ?>">Chi tiết</a></div>
                             <div class="mua"><a href="index.php?route=checkout&type=<?php echo $r2['Masach']; ?>" title="Mua hàng">Đặt hàng</a></div>
                         </div>
-                        <div class="labelspecial">-20%</div>
+                        <?php if(strtotime($today)<strtotime($ck_date)){
+                                ?>
+                        <div class="labelspecial"><?php echo $r2['Chietkhau'];?>%</div>
+                        <?php } else { ?>
+                            <div class="labelspecial">0%</div>
+                             <?php } ?>
                     </div>
                 <?php
                 }

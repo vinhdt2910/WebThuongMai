@@ -9,7 +9,10 @@
         else if ($route == 'cate')
         {
             include('category.php');
-           
+        }
+        else if($route == 'book')
+        {
+            include('book_detail.php');
         }
     }
     else include('home.php');

@@ -33,15 +33,15 @@
 
         <div id="owl-demo" class="owl-carousel owl-theme">
 
-            <div class="item"><a href="http://thanhhabooks.com/"><img src="http://thanhhabooks.com/image/data/banner slide.jpg" data-thumb="http://thanhhabooks.com/image/data/banner slide.jpg" title="" alt="" /></a></div>
+            <div class="item"><a href="#"><img src="http://thanhhabooks.com/image/data/banner slide.jpg" data-thumb="http://thanhhabooks.com/image/data/banner slide.jpg" title="" alt="" /></a></div>
 
-            <div class="item"><a href="http://thanhhabooks.com/index.php?route=product/category&amp;path=170"><img src="http://thanhhabooks.com/image/data/banner 1.jpg" data-thumb="http://thanhhabooks.com/image/data/banner 1.jpg" title="" alt="" /></a></div>
+            <div class="item"><a href="#"><img src="http://thanhhabooks.com/image/data/banner 1.jpg" data-thumb="http://thanhhabooks.com/image/data/banner 1.jpg" title="" alt="" /></a></div>
 
-            <div class="item"><a href="http://thanhhabooks.com/sach-cho-be-ky-nang-song"><img src="http://thanhhabooks.com/image/data/banner 2.jpg" data-thumb="http://thanhhabooks.com/image/data/banner 2.jpg" title="" alt="" /></a></div>
+            <div class="item"><a href="#"><img src="http://thanhhabooks.com/image/data/banner 2.jpg" data-thumb="http://thanhhabooks.com/image/data/banner 2.jpg" title="" alt="" /></a></div>
 
-            <div class="item"><a href="http://thanhhabooks.com/index.php?route=product/category&amp;path=170"><img src="http://thanhhabooks.com/image/data/banner 3.jpg" data-thumb="http://thanhhabooks.com/image/data/banner 3.jpg" title="" alt="" /></a></div>
+            <div class="item"><a href="#"><img src="http://thanhhabooks.com/image/data/banner 3.jpg" data-thumb="http://thanhhabooks.com/image/data/banner 3.jpg" title="" alt="" /></a></div>
 
-            <div class="item"><a href="http://thanhhabooks.com/index.php?route=product/category&amp;path=170"><img src="http://thanhhabooks.com/image/data/banner 4.jpg" data-thumb="http://thanhhabooks.com/image/data/banner 4.jpg" title="" alt="" /></a></div>
+            <div class="item"><a href="#"><img src="http://thanhhabooks.com/image/data/banner 4.jpg" data-thumb="http://thanhhabooks.com/image/data/banner 4.jpg" title="" alt="" /></a></div>
 
         </div>
         <script src="Template/css/owl-carousel/owl.carousel.js"></script>
@@ -102,9 +102,12 @@
                     $maloai=$r['Maloaisach'];
                    
                     $sbook = "SELECT * FROM `book` WHERE Loaisach = '".$maloai."' and trangthai ='1' limit 0,4 ";
-                    //var_dump($sbook) ; exit();
+                   
                     $re2 = mysqli_query($conn, $sbook);
                     while ($r2 = mysqli_fetch_array($re2)) {
+                        $today = date("Y-m-d");
+                        $ck_date=date($r2['Thoigianck']);
+                        //  var_dump($ck_date) ; exit();
                 ?>
                     <div class="sanpham xam">
                         <div>
@@ -117,15 +120,25 @@
                                 href="index.php?route=book&type=<?php echo $r2['Masach']; ?>"><?php echo $r2['Tensach']; ?></a>
                             </div>
                             <div class="gia">
-                                <div class="giacu"><?php echo $r2['Gia'],0; ?> đ</div>
-                                <div class="giamoi"><?php echo $r2['Gia'],0; ?> đ</div>
+                                <div class="giacu"><?php echo number_format($r2['Gia']); ?>đ</div>
+                                <?php if(strtotime($today)<strtotime($ck_date)){
+                                ?>
+                                <div class="giamoi"><?php echo number_format($r2['Gia']-($r2['Gia']*$r2['Chietkhau']/100)); ?>đ</div>
+                            <?php } else { ?>
+                                <div class="giamoi"><?php echo number_format($r2['Gia']); ?>đ</div>
+                             <?php } ?>
                             </div>
                         </div>
                         <div class="chitietvsmua">
                             <div class="chitiet"><a title="<?php echo $r2['Tensach']; ?>" href="index.php?route=book&type=<?php echo $r2['Masach']; ?>">Chi tiết</a></div>
                             <div class="mua"><a href="index.php?route=checkout&type=<?php echo $r2['Masach']; ?>" title="Mua hàng">Đặt hàng</a></div>
                         </div>
-                        <div class="labelspecial">-20%</div>
+                        <?php if(strtotime($today)<strtotime($ck_date)){
+                                ?>
+                        <div class="labelspecial"><?php echo $r2['Chietkhau'];?>%</div>
+                        <?php } else { ?>
+                            <div class="labelspecial">0%</div>
+                             <?php } ?>
                     </div>
                 <?php
                 }
