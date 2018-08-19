@@ -127,48 +127,7 @@ if (isset($type)) {
                 <div class="product-infoo">
 
                     <div class="chitietsp">Chi tiết</div>
-                    <p style="margin: 0px 0px 6px; font-family: Helvetica, Arial, sans-serif; color: rgb(29, 33, 41); font-size: 14px;">
-                        SÁCH CỜ VUA TƯƠNG TÁC ĐẦU TIÊN TẠI VIỆT NAM CHO BÉ TỪ 3 TUỔI
-                    </p>
-                    <p style="margin: 0px 0px 6px; font-family: Helvetica, Arial, sans-serif; color: rgb(29, 33, 41); font-size: 14px;">
-                        Lại một bộ sách siêu Hot được mua bản quyền từ NXB Usborne nhé các Bố Mẹ!
-                    </p>
-                    <p style="margin: 6px 0px; font-family: Helvetica, Arial, sans-serif; color: rgb(29, 33, 41); font-size: 14px;">
-                        Bộ sách dành cho các bé từ 3+, với thiết kế trình bày nội dung thông minh, việc học cờ vua qua sách thật dễ dàng với các con!<br />
-                        Đặc biệt trong bộ sách còn có những câu đố vui , những sticker dán hình giúp bé tương tác và ghi nhớ hơn (Có phần giải đáp câu đố ở trang cuối cuốn sách)<span class="text_exposed_show" style="display: inline; font-family: inherit;">
-                            <br />
-                            Bộ sách chia làm 3 quyển với 3 cấp độ:&nbsp;<br />
-                        </span>
-                    </p>
-                    <p style="margin: 6px 0px; font-family: Helvetica, Arial, sans-serif; color: rgb(29, 33, 41); font-size: 14px;">
-                        <span class="text_exposed_show" style="display: inline; font-family: inherit;">Quyển 1: Chơi cờ vua cùng bé - Trò chơi phát triển toàn diện: Cuốn sách sẽ dạy bé tất cả những gì bé cần để bắt đầu trò chơi trí tuệ này, Bé sẽ học tên quân cờ, học cách điều khiển đội quân cờ của riêng mình một cách đầy vui vẻ và hứng thú</span>
-                    </p>
-                    <div class="text_exposed_show" style="display: inline; font-family: Helvetica, Arial, sans-serif; color: rgb(29, 33, 41); font-size: 14px;">
-                        <p style="margin: 0px 0px 6px; font-family: inherit;">
-                            <span style="font-family: inherit;">Quyển 2: Chơi cờ vua cùng bé - Ván cờ hoàn chỉnh: Những câu hỏi khiến bạn phải động não, những kiến thức hữu ích và những mẹo nhỏ thông minh, để giúp bạn hiểu cách chơi của Cờ vua, và cải thiện kỹ năng chơi cờ -&gt;&nbsp;</span><span style="font-family: inherit;">Phát triển sâu hơn các kĩ năng cho bé</span>
-                        </p>
-                        <p style="margin: 6px 0px; font-family: inherit;">
-                            Quyển 3: Cờ vua - Những bước đi đầu tiên của kiện tướng: Hướng dẫn có minh họa về lịch sử, các chiến thuật và kỹ thuật cờ vua phù hợp cho người mới bắt đầu ở mọi lứa tuổi và bất kỳ ai muốn cải thiện lối chơi của mình. Trong cuốn sách này cũng có nhiều lời khuyên về cách đặt những cái bẫy chết người, tính toán những bước đi khéo léo, thực hiện tấn công hiệu quả cũng như bảo vệ quân cờ của bạn sao cho đảm bảo một kết quả thắng lợi -&gt; Cẩm nang Cho Bố mẹ và các con tìm hiểu sâu hơn về môn cờ vua trên nền kiến thức cơ bản.
-                        </p>
-                    </div>
-                    <p style="margin: 6px 0px; font-family: Helvetica, Arial, sans-serif; color: rgb(29, 33, 41); font-size: 14px;">
-                    </p>
-                    <p style="margin: 6px 0px; font-family: Helvetica, Arial, sans-serif; color: rgb(29, 33, 41); font-size: 14px;">
-                        Giá :&nbsp;<br />
-                        Quyển 1 - Trò chơi phát triển toàn diện: 58k,&nbsp;<br />
-                        Quyển 2 - Ván cờ hoàn chỉnh: 78k,&nbsp;<br />
-                        Quyển 3 - Những bước đi đầu tiên của kiện tướng: 92k&nbsp;<br />
-                        =&gt; Trọn bộ 3 quyển giá bìa 228k -&gt; ưu đãi giảm còn&nbsp;<span class="_5afx" style="color: rgb(54, 88, 153); cursor: pointer; text-decoration-line: none; font-family: inherit; direction: ltr; unicode-bidi: isolate;"><span class="_58cm" style="font-family: inherit;"><a class="_58cn" data-ft="{&quot;tn&quot;:&quot;*N&quot;,&quot;type&quot;:104}" href="https://www.facebook.com/hashtag/182k?source=feed_text" style="color: rgb(54, 88, 153); cursor: pointer; text-decoration-line: none; font-family: inherit;">1</a>82k</span></span>/ bộ 3 quyển
-                    </p>
-                    <p style="margin: 6px 0px; font-family: Helvetica, Arial, sans-serif; color: rgb(29, 33, 41); font-size: 14px;">
-                    </p>
-                    <p style="margin: 6px 0px; font-family: Helvetica, Arial, sans-serif; color: rgb(29, 33, 41); font-size: 14px;">
-                        Nhà Xuất Bản Phụ Nữ<br />
-                        Bản quyền của Usborne<br />
-                        BabyChess dịch<br />
-                        Kiện tướng Lương Nhật Linh hiệu đính
-                    </p>
-
+                    <?php echo number_format($r['Mota']); ?>
 
 
                 </div>

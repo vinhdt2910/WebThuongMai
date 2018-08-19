@@ -19,7 +19,7 @@
                 <br>
                 <br>
                 <p>Bạn hãy đăng ký một tài khoản, hoàn toàn nhanh chóng và miễn phí.</p>
-                <div style="text-align: right;"><a onclick="$('#account').submit();" class="button"><span>Tiếp tục</span></a></div>
+                <div style="text-align: right;"><a href="index.php?route=regist" class="button"><span>Tiếp tục</span></a></div>
 
             </div>
         </div>
