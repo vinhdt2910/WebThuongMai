@@ -127,7 +127,7 @@ if (isset($type)) {
                 <div class="product-infoo">
 
                     <div class="chitietsp">Chi tiết</div>
-                    <?php echo number_format($r['Mota']); ?>
+                    <?php echo ($r['Mota']); ?>
 
 
                 </div>
