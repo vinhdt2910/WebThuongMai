@@ -27,6 +27,7 @@ include('connect.php')
     <script src="Template/js/mobile.js"></script>
     <script src="Template/js/modernizr.custom.js"></script>
     <script src="Template/js/jquery/tab.js"></script>
+    <script src="Template/js/common.js"></script>
 </head>
 <!-- Them Background Image -->
 <body>
@@ -42,9 +43,9 @@ include('connect.php')
                     <a href="lien-he-vi"><i class="fa fa-envelope"></i> Liên hệ</a>
                     <?php
                     if (isset($_SESSION['userid'])) {
-
                     ?>
-                    <a href="" id="tab_logout"> <i class="fa fa-user-secret"></i><?php echo $_SESSION['name']; ?>|Đăng xuất</a>
+                    <a href="index.php?route=inforuser" id="tab_inforUser"> <i class="fa fa-user-secret"></i><?php echo $_SESSION['name'];?></a>
+                    <a href="" id="tab_logout">Đăng xuất</a>
                     <?php
                     }
                     else{ ?>
@@ -57,7 +58,7 @@ include('connect.php')
                 </div>
 
                 <div class="topmxh">
-                    <i style="color: #000000; font-size: 18px" class="fa fa-shopping-cart"></i> <a href="index.php?route=checkout/shipping" id="tab_checkout">(0 sản phẩm) 0 đ</a>
+                    <i style="color: #000000; font-size: 18px" class="fa fa-shopping-cart"></i> <a href="index.php?route=cart" id="tab_checkout">(0 sản phẩm) 0 đ</a>
                 </div>
             </div>
         </div>
@@ -126,9 +127,10 @@ include('connect.php')
                                 <li>
                                 <?php
                     if (isset($_SESSION['userid'])) {
-
                     ?>
-                    <a href="" id="tab_logout"> <?php echo $_SESSION['name']; ?>|Đăng xuất</a>
+                    <a href="index.php?route=inforuser" id="tab_inforUser"> <i class="fa fa-user-secret"></i><?php echo $_SESSION['name'];?></a>
+                    <a href="" id="tab_logout">Đăng xuất</a>
+                  
                     <?php
                     }
                     else{ ?>

@@ -29,8 +29,9 @@ if (isset($type)) {
         <?php
                 
                 $sbook = "SELECT * FROM `book` WHERE Loaisach = '".$type."' and trangthai ='1'";
-                    //var_dump($sbook) ; exit();
+                 
                     $re2 = mysqli_query($conn, $sbook);
+                   
                     while ($r2 = mysqli_fetch_array($re2)) {
                         $today = date("Y-m-d");
                         $ck_date=date($r2['Thoigianck']);
@@ -71,4 +72,4 @@ if (isset($type)) {
                 ?>
 
     </div>
-    <div class="pagination"><div class="links"> <a href="http://thanhhabooks.com/sach-phat-trien-tri-tue?sort=p.price&order=ASC&page=1">|&lt;</a> <a href="http://thanhhabooks.com/sach-phat-trien-tri-tue?sort=p.price&order=ASC&page=1">&lt;</a>  <a href="http://thanhhabooks.com/sach-phat-trien-tri-tue?sort=p.price&order=ASC&page=1">1</a>  <b>2</b> </div><div class="results">Hiển thị từ trang 21 đến trang 32  trong tổng số 32 trang</div></div>
+    <div class="pagination"><div class="links"> <a href="#">|&lt;</a> <a href="#">&lt;</a>  <a href="#">1</a>  <b>2</b> </div><div class="results">Hiển thị từ trang 21 đến trang 32  trong tổng số 32 trang</div></div>

@@ -131,14 +131,11 @@
     method: "POST",
     data: { Hoten: Hoten, password: password, email: email , Sodt: Sodt,Diachi: Diachi},
     success: function (response) {
-        if (response == "2") {// kiem tra du lieu ra
+        if (response == "1") {// kiem tra du lieu ra
       alert("Tài khoản đã đăng ký thành công");
          window.location="index.php";    
-        } else 
-        if (response == "1"){
-            window.location="admin.php"; 
-        }
-        else{
+        } 
+        else {
             error.html("Lỗi hệ thống !");
         }
     }

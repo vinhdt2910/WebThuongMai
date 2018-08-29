@@ -10,6 +10,14 @@
         {
             include('category.php');
         }
+        else if ($route == 'inforuser')
+        {
+            include('inforuser.php');
+        }
+        else if ($route == 'cart')
+        {
+            include('cart.php');
+        }
         else if ($route == 'regist')
         {
             include('regist.php');

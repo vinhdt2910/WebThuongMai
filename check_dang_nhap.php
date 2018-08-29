@@ -15,7 +15,7 @@ include('connect.php');
      if ($admin_num_row > 0) {
          if($row1['Password'] == $password)
          {
-        $_SESSION['userid'] = $username;
+        $_SESSION['userid'] = $row1['User_ID'];
         $_SESSION['name'] = $row1['Hoten'];
         
         if ($row1['Loainguoidung'] == 1) {
