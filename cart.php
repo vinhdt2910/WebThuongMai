@@ -52,7 +52,7 @@
                     <img src="Template/theme/default/image/subtract.png" class="subtractimg" align="absmiddle" onclick="subvalue(<?php echo $i; ?>)"  />
                 </td>
                 <td align="right" valign="top" class="price"><?php echo number_format($r2['Giamua']); ?>đ</td>
-                <td align="right" valign="top" class="total">168,000 đ</td>
+                <td align="right" valign="top" class="total"><?php echo number_format($r2['Giamua']*$r2['Soluong']); ?>đ</td>
             </tr>
            
 
@@ -77,8 +77,8 @@
         <div class="buttons">
             <table>
                 <tr>
-                    <td align="left"><a onclick="location = 'http://thanhhabooks.com/index.php?route=product/product&product_id=386'" class="button"><span>Tiếp tục mua hàng</span></a></td>
-                    <td align="right"><a onclick="location = 'http://thanhhabooks.com/index.php?route=checkout/shipping'" class="button"><span>Thanh toán</span></a></td>
+                    <td align="left"><a onclick="location = 'index.php'" class="button"><span>Tiếp tục mua hàng</span></a></td>
+                    <td align="right"><a onclick="location = 'index.php?route=checkout'" class="button"><span>Thanh toán</span></a></td>
                 </tr>
             </table>
         </div>
