@@ -73,7 +73,7 @@ require_once('template/_header.php');
 			
 			<tr>
 				<td><?php echo $product['Masach']; ?></td>
-				<td><img src="/media/catalogue/<?php echo $product['anh']; ?>" width="50"></td>
+				<td><img src="/image/<?php echo $product['anh']; ?>" width="50"></td>
 
 				<td><?php echo Helper::encodeHtml($product['Tensach']); ?></td>
 				<td align="center"><?php echo $product['Ngayxuatban']; ?></td>

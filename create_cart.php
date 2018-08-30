@@ -10,9 +10,7 @@ if (isset($_SESSION['userid'])) {
     $sql1 = "SELECT Magiohang FROM giohang Where MaKH= '".$userid."'";
     $query1 = mysqli_query($conn, $sql1);
     $r = mysqli_fetch_array($query1);
-
     if(count($r)>0){
-       // $r =
         $sql2 = "SELECT Masach FROM chitietgiohang Where Magiohang= '".$r['Magiohang']."'";
         $query2 = mysqli_query($conn, $sql2);
 
@@ -32,7 +30,7 @@ if (isset($_SESSION['userid'])) {
     }
     else{
         $sql="insert into giohang (MaKH,Ngaydat) values('".$userid ."',CURRENT_DATE())";
-       // echo $sql; exit();
+      
         mysqli_query($conn, $sql);
         
         $sql5 = "SELECT Max(Magiohang) as magio FROM `giohang`";
@@ -44,7 +42,7 @@ if (isset($_SESSION['userid'])) {
 
 }else  {
     $sql="insert into giohang (MaKH,Ngaydat) values('".$userid ."',CURRENT_DATE())";
-    // echo $sql; exit();
+    
      mysqli_query($conn, $sql);
      
      $sql5 = "SELECT Max(Magiohang) as magio FROM `giohang`";

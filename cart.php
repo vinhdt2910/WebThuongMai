@@ -47,9 +47,9 @@
                 </td>
 
                 <td align="right" valign="top">
-                    <img src="Template/theme/default/image/plus.png" class="plusimg" align="absmiddle" onclick="plusvalue(<?php echo $i; ?>)" />&nbsp;
+                    <a onclick="plusvalue(<?php echo $i; ?>)" ><img src="Template/theme/default/image/plus.png" class="plusimg" align="absmiddle" /></a>&nbsp;
                     <input type="text" id="quantity<?php echo $i; ?>" value="<?php echo ($r2['Soluong']);?>" size="1" style="width:24px;" />&nbsp;
-                    <img src="Template/theme/default/image/subtract.png" class="subtractimg" align="absmiddle" onclick="subvalue(<?php echo $i; ?>)"  />
+                    <a onclick="subvalue(<?php echo $i; ?>)" ><img src="Template/theme/default/image/subtract.png" class="subtractimg" align="absmiddle"/></a>
                 </td>
                 <td align="right" valign="top" class="price"><?php echo number_format($r2['Giamua']); ?>đ</td>
                 <td align="right" valign="top" class="total"><?php echo number_format($r2['Giamua']*$r2['Soluong']); ?>đ</td>
