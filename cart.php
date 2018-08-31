@@ -40,7 +40,7 @@
                     </a>
                 </td>
                 <td align="left" valign="top">
-                    <a href="index.php/route=book&type=<?php echo $r2['Masach'] ?>"><?php echo $r2['Tensach'] ?></a>
+                    <a href="index.php?route=book&type=<?php echo $r2['Masach'] ?>"><?php echo $r2['Tensach'] ?></a>
                     <span style="color: #FF0000; font-weight: bold;" class="stock"></span>
                     <div>
                     </div>
@@ -86,11 +86,10 @@
 </div>
 <script>
 function plusvalue(i){
-    //$("#quantity").val()=$("#quantity".i).val()+1;
-    alert('i');
+    document.getElementById("quantity"+i).value = parseInt(document.getElementById("quantity"+i).value)+1;
 }
 
 function subvalue(i){
-    $("#quantity".i).val()=$("#quantity".i).val() +1;
+    document.getElementById("quantity"+i).value = parseInt(document.getElementById("quantity"+i).value)-1;
 }
 </script>

@@ -239,13 +239,7 @@ if (isset($type)) {
         method: "POST",
         data: {bookid:bookid, quanlity: quanlity ,giamua:gia},
         success: function (response) {
-            <?php
-            include('connect.php');
-                  $sql5 = "SELECT SUM(Soluong)as soluong, SUM(Giamua*Soluong) FROM `chitietgiohang` WHERE Magiohang='2' ";
-                  $query5 = mysqli_query($conn, $sql5);
-                  $magiohang=mysqli_fetch_array( $query5);
-                ?>
-           $("#tab_checkout").val()= <?php echo $magiohang["soluong"] ?>
+            window.location="index.php?route=cart";
         }
     });
 }

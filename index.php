@@ -52,13 +52,28 @@ include('connect.php')
                     <a href="index.php?route=login" id="tab_login"><i class="fa fa-user-secret"></i> Đăng nhập</a>
                     <?php
                     }
-                    ?>
-
-                    
+                    ?>                    
                 </div>
 
                 <div class="topmxh">
-                    <i style="color: #000000; font-size: 18px" class="fa fa-shopping-cart"></i> <a href="index.php?route=cart" id="tab_checkout">(0 sản phẩm) 0 đ</a>
+                    <i style="color: #000000; font-size: 18px" class="fa fa-shopping-cart"></i>
+                     <a href="index.php?route=cart" >
+                     <?php
+                      if (isset($_SESSION['userid'])) {
+                        $userid = $_SESSION['userid'];
+           $sql4="SELECT Magiohang From giohang where Makh='". $userid."'" ;
+           $query4= mysqli_query($conn, $sql4);
+           $magio=mysqli_fetch_array( $query4);
+                  $sql5 = "SELECT SUM(Soluong)as soluong, SUM(Giamua*Soluong) as tongtien FROM `chitietgiohang` WHERE Magiohang= '". $magio['Magiohang']."'";
+                  $query5 = mysqli_query($conn, $sql5);
+                  $magiohang=mysqli_fetch_array( $query5);
+                     
+                ?>
+                         <label  id="tab_checkout">(<?php echo $magiohang["soluong"] ?>sản phẩm)<?php echo number_format($magiohang["tongtien"]) ?>đ</label>
+                         <?php  } else {?>
+                            <label  id="tab_checkout">(0 sản phẩm)0.000đ</label>
+                            <?php  }?>
+                    </a>
                 </div>
             </div>
         </div>
@@ -339,13 +354,7 @@ include('connect.php')
                         </div>
                     </div>
                 </div>
-                <div class="box">
-                    <div class="top"><img src="Template/theme/default/image/special.png" />Thống kê truy cập</div>
-                    <div class="middle" style="text-align: center;">
-                        <div style="font-size:16px;background-color:;color:;">00215689</div>
-
-                    </div>
-                </div>
+               
             </aside>
             <section id="content">
                 <!-- cho dat slide-->
@@ -507,9 +516,7 @@ include('connect.php')
                             </div>
 
 
-                            <div>
-                                Số người Online: <span style="color:#ff0;">29529</span> - Tổng truy cập: <span style="color:#ff0;">215680</span>
-                            </div>
+                           
                             <div>Bản quyền thuộc về &copy; Design by <a href="#" title="Web trọn gói tại" target="_blank">NamnguyenIT</a></div>
 
 

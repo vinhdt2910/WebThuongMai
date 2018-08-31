@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Nguyen Nam Book Store</title>
+<title>ThanhhaBooks</title>
 <meta name="description" content="Ecommerce website project" />
 <meta name="keywords" content="Ecommerce website project" />
 <meta http-equiv="imagetoolbar" content="no" />
@@ -12,7 +12,7 @@
 <body>
 <div id="header">
 	<div id="header_in">
-		<h5><a href="/admin/?page=products">Nguyen Nam Book Store Management</a></h5>
+		<h5><a href="/admin/?page=products">ThanhhaBooks</a></h5>
 		<?php
 			if (Login::isLogged(Login::$_login_admin)) {
 				echo '<div id="logged_as">Xin chào: <strong>';

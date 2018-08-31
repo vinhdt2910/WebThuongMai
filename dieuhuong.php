@@ -26,6 +26,10 @@
         {
             include('book_detail.php');
         }
+        else if($route == 'checkout')
+        {
+            include('checkout.php');
+        }
     }
     else include('home.php');
 
