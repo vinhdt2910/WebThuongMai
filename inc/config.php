@@ -42,7 +42,7 @@ defined("EMAILS_PATH")
 	
 // catalogue images path
 defined("CATALOGUE_PATH")
-	|| define("CATALOGUE_PATH", ROOT_PATH.DS."media".DS."catalogue");
+	|| define("CATALOGUE_PATH", ROOT_PATH.DS."image");
 	
 // add all above directories to the include path
 set_include_path(implode(PATH_SEPARATOR, array(

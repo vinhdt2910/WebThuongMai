@@ -302,7 +302,6 @@ include('connect.php')
                                 <?php
                                 $s = "SELECT * FROM book_category WHERE  tinhtrang='1'";
                                 $re = mysqli_query($conn, $s);
-
                                 while ($r = mysqli_fetch_array($re)) {
                                 ?>
                                 <li class="">

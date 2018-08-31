@@ -22,7 +22,6 @@ require_once('template/_header.php');
 		<table cellpadding="0" cellspacing="0" border="0" class="tbl_repeat list">
 			<thead>
 				<tr>
-					<th>Tên nhà xuất bản</th>
 					<th>Tên nhà phát hành</th>
 					<th class="col_15 ta_r">Xóa</th>
 					<th class="col_5 ta_r">sửa</th>
@@ -32,7 +31,6 @@ require_once('template/_header.php');
 				<?php foreach($rows as $category) { ?>
 				
 				<tr>
-					<td><?php echo Helper::encodeHtml($category['Tennhaxuatban']); ?></td>
 					<td><?php echo Helper::encodeHtml($category['Tennhaphathanh']); ?></td>
 					<td class="ta_r">
 						<a href="/admin/?page=publisher&amp;action=remove&amp;id=<?php echo $category['Manhaphathanh']; ?>">Xóa</a>

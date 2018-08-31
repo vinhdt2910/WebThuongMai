@@ -18,10 +18,12 @@ a, a:visited {
 	cursor: pointer;
 }
 form {
-	margin: 0;
+	margin: auto;
 	padding: 0;
 }
-
+table {
+	margin: auto !important;
+}
 #menu {
 	background: url('../images/menu.png') repeat-x !important;
 	position: relative;

@@ -213,8 +213,8 @@ class Order extends Application {
 	public function getClientOrders($client_id = null) {
 		if (!empty($client_id)) {
 			$sql = "SELECT * FROM `{$this->_table}`
-					WHERE `client` = '".$this->db->escape($client_id)."'
-					ORDER BY `date` DESC";
+					WHERE `Makh` = '".$this->db->escape($client_id)."'
+					ORDER BY `Ngaydat` DESC";
 			return $this->db->fetchAll($sql);
 		}
 	}

@@ -2,23 +2,22 @@
 $objForm = new Form();
 $objValid = new Validation($objForm);
 
-if ($objForm->isPost('Tennhaxuatban')) {
+if ($objForm->isPost('Tennhaphathanh')) {
 	
-	$objValid->_expected = array('Tennhaxuatban', 'Tennhaphathanh');	
-	$objValid->_required = array('Tennhaxuatban', 'Tennhaphathanh');
+	$objValid->_expected = array('Tennhaphathanh');	
+	$objValid->_required = array('Tennhaphathanh');
 	
 	$objCatalogue = new Catalogue();
 	
-	$Tennhaxuatban = $objForm->getPost('Tennhaxuatban');
 	$Tennhaphathanh = $objForm->getPost('Tennhaphathanh');
 	
-	if ($objCatalogue->duplicatePublisher($Tennhaxuatban)) {
+	if ($objCatalogue->duplicatePublisher($Tennhaphathanh)) {
 		$objValid->add2Errors('name_duplicate');
 	}
 	
 	if ($objValid->isValid()) {
 		
-		if ($objCatalogue->addPublisher($Tennhaxuatban, $Tennhaphathanh)) {
+		if ($objCatalogue->addPublisher($Tennhaphathanh)) {
 		
 			Helper::redirect('/admin'.Url::getCurrentUrl(array('action', 'id')).'&action=added');
 			
@@ -38,20 +37,6 @@ require_once('template/_header.php');
 <form action="" method="post">
 	
 	<table cellpadding="0" cellspacing="0" border="0" class="tbl_insert">
-		
-		<tr>
-			<th><label for="name">Tên nhà xuất bản: *</label></th>
-			<td>
-				<?php 
-					echo $objValid->validate('Tennhaxuatban'); 
-					echo $objValid->validate('name_duplicate'); 
-				?>
-				<input type="text" name="Tennhaxuatban" id="Tennhaxuatban" 
-					value="<?php echo $objForm->stickyText('Tennhaxuatban'); ?>" 
-					class="fld" />
-			</td>
-		</tr>
-
 		<tr>
 			<th><label for="name">Tên nhà phát hành: *</label></th>
 			<td>

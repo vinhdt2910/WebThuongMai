@@ -142,7 +142,7 @@ if (!empty($id)) {
 				<td>
 					<?php echo $objValid->validate('anh'); ?>
 					<input type="file" name="anh" id="anh" size="30" onchange="loadImage(event)"/>
-				<img src="/media/catalogue/<?php echo $product['anh'];?>" width="100" id="preview" alt="">
+				<img src="/image/<?php echo $product['anh'];?>" width="100" id="preview" alt="">
 <script>
   var loadImage = function(event) {
     var preview = document.getElementById('preview');

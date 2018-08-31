@@ -245,9 +245,7 @@ if (isset($type)) {
                   $query5 = mysqli_query($conn, $sql5);
                   $magiohang=mysqli_fetch_array( $query5);
                 ?>
-          
-
-           $("#tab_checkout").val()=
+           $("#tab_checkout").val()= <?php echo $magiohang["soluong"] ?>
         }
     });
 }

@@ -4,7 +4,7 @@ class Catalogue extends Application {
 	private $_table = 'book_category';
 	private $_table_2 = 'book';
 	private $_table_3 = 'publisher';
-	public $_path = 'media/catalogue/';
+	public $_path = 'image';
 	public static $_currency = '&pound;';
 	
 	
@@ -56,10 +56,10 @@ class Catalogue extends Application {
 		}
 	}
 	
-	public function addPublisher($tennhaxuatban = null, $tennhaphathanh) {
-		if (!empty($tennhaxuatban) && !empty($tennhaphathanh)) {
+	public function addPublisher($tennhaphathanh = null) {
+		if (!empty($tennhaphathanh)) {
 			$sql = "INSERT INTO `{$this->_table_3}`
-					(`Tennhaxuatban`, `Tennhaphathanh`) VALUES ('".$this->db->escape($tennhaxuatban)."', '".$this->db->escape($tennhaphathanh)."')";
+					(`Tennhaphathanh`) VALUES ('".$this->db->escape($tennhaphathanh)."')";
 			return $this->db->query($sql);
 		}
 	}
@@ -81,10 +81,10 @@ class Catalogue extends Application {
 	}
 	
 	
-	public function updatePublisher($tennhaxuatban = null, $tennhaphathanh = null, $id = null) {
-		if (!empty($tennhaxuatban) && !empty($tennhaphathanh) && !empty($id)) {
+	public function updatePublisher($tennhaphathanh = null, $id = null) {
+		if (!empty($tennhaphathanh) && !empty($id)) {
 			$sql = "UPDATE `{$this->_table_3}`
-					SET `Tennhaxuatban` = '".$this->db->escape($tennhaxuatban)."', `Tennhaphathanh` = '".$this->db->escape($tennhaphathanh)."'
+					SET `Tennhaphathanh` = '".$this->db->escape($tennhaphathanh)."'
 					WHERE `Manhaphathanh` = '".$this->db->escape($id)."'";
 			return $this->db->query($sql);
 		}
@@ -113,7 +113,7 @@ class Catalogue extends Application {
 	public function duplicatePublisher($tennhaxuatban = null, $id = null) {
 		if (!empty($name)) {
 			$sql  = "SELECT * FROM `{$this->_table_3}`
-					WHERE `Tennhaxuatban` = '".$this->db->escape($tennhaxuatban)."'";
+					WHERE `Tennhaphathanh` = '".$this->db->escape($tennhaxuatban)."'";
 			$sql .= !empty($id) ? 
 					" AND `Manhaphathanh` != '".$this->db->escape($id)."'" : 
 					null;

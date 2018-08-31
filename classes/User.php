@@ -156,12 +156,12 @@ class User extends Application {
 	
 	public function getUsers($srch = null) {
 		$sql = "SELECT * FROM `{$this->_table}`
-				WHERE `active` = 1";
+				WHERE `Trangthai` = 1";
 		if (!empty($srch)) {
 			$srch = $this->db->escape($srch);
-			$sql .= " AND (`first_name` LIKE '%{$srch}%' || `last_name` LIKE '%{$srch}%')";
+			$sql .= " AND `Hoten` LIKE '%{$srch}%' ";
 		}
-		$sql .= " ORDER BY `last_name`, `first_name` ASC";
+		$sql .= " ORDER BY `Hoten` ASC";
 		return $this->db->fetchAll($sql);
 	}
 	

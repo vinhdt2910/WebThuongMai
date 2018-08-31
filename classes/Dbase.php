@@ -4,7 +4,7 @@ class Dbase {
 	private $_host = "localhost";
 	private $_user = "root";
 	private $_password = "";
-	private $_name = "bansach";
+	private $_name = "webthuongmai";
 	
 	private $_conndb = false;
 	public $_last_query = null;
