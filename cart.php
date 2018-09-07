@@ -33,7 +33,9 @@
                         $i++;
                 ?>
             <tr class="even">
-                <td align="center"><img src="Template/theme/default/image/cancel.png" class="removeimg" /><input type="hidden" name="remove[]" value="386" /></td>
+                <td align="center">
+                    <a onclick="if (confirm('Bạn có chắc xóa sản phẩm này không?')) {removebook(<?php echo $r2['Masach']?>,<?php echo $r2['Magiohang']?>);}" ><img src="Template/theme/default/image/cancel.png" class="removeimg" /></a>
+                </td>
                 <td align="center" width="80px">
                     <a href="index.php?route=book&type=<?php echo $r2['Masach'] ?>">
                         <img title="<?php echo $r2['Tensach']; ?>" style="width: 75px" src="image/<?php echo $r2['anh'] ?>" alt="<?php echo $r2['Tensach']; ?>" />
@@ -47,9 +49,9 @@
                 </td>
 
                 <td align="right" valign="top">
-                    <a onclick="plusvalue(<?php echo $i; ?>)" ><img src="Template/theme/default/image/plus.png" class="plusimg" align="absmiddle" /></a>&nbsp;
+                    <a onclick="plusvalue(<?php echo $i; ?>,<?php echo $r2['Masach']?>,<?php echo $r2['Magiohang']?>)" ><img src="Template/theme/default/image/plus.png" class="plusimg" align="absmiddle" /></a>&nbsp;
                     <input type="text" id="quantity<?php echo $i; ?>" value="<?php echo ($r2['Soluong']);?>" size="1" style="width:24px;" />&nbsp;
-                    <a onclick="subvalue(<?php echo $i; ?>)" ><img src="Template/theme/default/image/subtract.png" class="subtractimg" align="absmiddle"/></a>
+                    <a onclick="subvalue(<?php echo $i; ?>,<?php echo $r2['Masach']?>,<?php echo $r2['Magiohang']?>)" ><img src="Template/theme/default/image/subtract.png" class="subtractimg" align="absmiddle"/></a>
                 </td>
                 <td align="right" valign="top" class="price"><?php echo number_format($r2['Giamua']); ?>đ</td>
                 <td align="right" valign="top" class="total"><?php echo number_format($r2['Giamua']*$r2['Soluong']); ?>đ</td>
@@ -85,11 +87,55 @@
     </form>
 </div>
 <script>
-function plusvalue(i){
+function plusvalue(i,b,c){
     document.getElementById("quantity"+i).value = parseInt(document.getElementById("quantity"+i).value)+1;
+    var quantity=document.getElementById("quantity"+i).value;
+    var book= b;
+    var cart= c;
+    $.ajax({
+    url: "cartaction.php",
+    method: "POST",
+    data: { book: book, cart:cart,action:"1",quantity:quantity },
+    success: function (response) {
+        if (response == "1") {// kiem tra du lieu ra
+         window.location="index.php?route=cart";    
+        } 
+    }
+});
 }
 
-function subvalue(i){
+function removebook(i,e){
+    var book= i;
+    var cart= e;
+    $.ajax({
+    url: "cartaction.php",
+    method: "POST",
+    data: { book: book, cart:cart,action:"3",quantity:0 },
+    success: function (response) {
+        if (response == "3") {// kiem tra du lieu ra
+         window.location="index.php?route=cart";    
+        } 
+    }
+});
+
+}
+
+function subvalue(i,b,c){
+    if(parseInt(document.getElementById("quantity"+i).value)>1)
     document.getElementById("quantity"+i).value = parseInt(document.getElementById("quantity"+i).value)-1;
+
+    var quantity=document.getElementById("quantity"+i).value;
+    var book= b;
+    var cart= c;
+    $.ajax({
+    url: "cartaction.php",
+    method: "POST",
+    data: { book: book, cart:cart,action:"1",quantity:quantity },
+    success: function (response) {
+        if (response == "1") {// kiem tra du lieu ra
+         window.location="index.php?route=cart";    
+        } 
+    }
+});
 }
 </script>

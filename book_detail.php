@@ -239,6 +239,7 @@ if (isset($type)) {
         method: "POST",
         data: {bookid:bookid, quanlity: quanlity ,giamua:gia},
         success: function (response) {
+            // if  (response=="a")
             window.location="index.php?route=cart";
         }
     });
