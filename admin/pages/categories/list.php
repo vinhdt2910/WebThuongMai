@@ -33,7 +33,12 @@ require_once('template/_header.php');
 				<tr>
 					<td><?php echo Helper::encodeHtml($category['Tenloai']); ?></td>
 					<td class="ta_r">
-						<a href="/admin/?page=categories&amp;action=remove&amp;id=<?php echo $category['Maloaisach']; ?>">Xóa</a>
+						<?php if ($objCatalogue->getProducts($category['Maloaisach']) == null) { 
+						?>
+							<a href="/admin/?page=categories&amp;action=remove&amp;id=<?php echo $category['Maloaisach']; ?>">Xóa</a>
+						<?php } else {?>
+							<span class="inactive">Xóa</span>
+						<?php } ?>
 					</td>
 					<td class="ta_r">
 						<a href="/admin/?page=categories&amp;action=edit&amp;id=<?php echo $category['Maloaisach']; ?>">Sửa</a>

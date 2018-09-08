@@ -15,7 +15,7 @@ if (!empty($id)) {
 		
 		if (!empty($remove)) {
 			
-			$objCatalogue->removeProduct($id);
+			$objCatalogue->removeProductLogic($id);
 			
 			Helper::redirect('/admin'.Url::getCurrentUrl(array('action', 'id', 'remove', 'srch', Paging::$_key)));
 			
@@ -24,8 +24,8 @@ if (!empty($id)) {
 		require_once('template/_header.php'); 
 ?>
 <h1>Xóa sản phẩm</h1>
-<p>Bạn có chắc chắn muốn xóa sản phẩm này không?<br />
-There is no undo!<br />
+<p>Bạn có chắc chắn muốn ẩn sản phẩm này đi không?<br />
+Chú ý sản phẩm sẽ bị ẩn khỏi trang chủ!!!<br />
 <a href="<?php echo $yes; ?>">Có</a> | <a href="<?php echo $no; ?>">Không</a></p>
 <?php 
 		require_once('template/_footer.php'); 

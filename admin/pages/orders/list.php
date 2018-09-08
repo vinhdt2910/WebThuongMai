@@ -72,7 +72,7 @@ require_once('template/_header.php');
 				<td><?php echo $order['Tinhtrang']; ?></td>
 
 				<td class="ta_r">
-				<?php if ($order['Tinhtrang'] == 1) { ?>
+				<?php if ($order['Tinhtrang'] == 'Hủy') { ?>
 					<a href="/admin/?page=orders&amp;action=remove&amp;id=<?php echo $order['Mahd']; ?>">Xóa</a>
 				<?php } else { ?>
 					<span class="inactive">Xóa</span>

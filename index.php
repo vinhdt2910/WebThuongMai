@@ -252,25 +252,8 @@ include('connect.php')
         });
 
         function moduleSearch() {
-            pathArray = location.pathname.split('/');
-
-            url = 'index.php';
-
-            url += 'index.php?route=product/search';
-
-            var filter_keyword = $('#filter_keyword').attr('value')
-
-            if (filter_keyword) {
-                url += '&keyword=' + encodeURIComponent(filter_keyword);
-            }
-
-            var filter_category_id = $('#filter_category_id').attr('value');
-
-            if (filter_category_id) {
-                url += '&category_id=' + filter_category_id;
-            }
-
-            location = url;
+            var key = $("#filter_keyword").val();
+            window.location="index.php?route=search&key="+key;
         }
     </script>
     <script type="text/javascript">

@@ -31,7 +31,7 @@ if (isset($type)) {
                                 <li><img src="image/<?php echo $r['anh'] ?>" title="<?php echo $r['Tensach']; ?>" alt="<?php echo $r['Tensach']; ?>"></li>
                                 <li><img src="image/<?php echo $r['anh'] ?>" title="<?php echo $r['Tensach']; ?>" alt="<?php echo $r['Tensach']; ?>"></li>
                                 <li><img src="image/<?php echo $r['anh'] ?>" title="<?php echo $r['Tensach']; ?>" alt="<?php echo $r['Tensach']; ?>"></li>
-                                <li><img src="http://thanhhabooks.com/image/cache/data/Chơi cờ vua cùng bé/10-500x500.jpg" title="Chơi cờ vua cùng bé (Bộ 3q)" alt="Chơi cờ vua cùng bé (Bộ 3q)"></li>
+                                
                             </ul>
                         </div>
                         <script type="text/javascript">

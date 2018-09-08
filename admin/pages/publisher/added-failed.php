@@ -1,5 +1,5 @@
 <?php require_once('template/_header.php'); ?>
-<h1>Categories :: Add</h1>
-<p>There was a problem adding this record.<br />
-Please contact administrator.</p>
+<h1>Thêm mới nhà phát hành</h1>
+<p>Thêm mới chưa thành công!!!<br />
+Vui lòng liên hệ kỹ thuật để được kiểm tra!!!</p>
 <?php require_once('template/_footer.php'); ?>

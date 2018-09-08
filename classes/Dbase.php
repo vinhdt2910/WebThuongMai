@@ -146,13 +146,10 @@ class Dbase {
 	}
 	
 	
-	
-	
-	
-	
 	public function prepareUpdate($array = null) {
 		if (!empty($array)) {
 			foreach($array as $key => $value) {
+
 				$this->_update_sets[] = "`{$key}` = '".$this->escape($value)."'";
 			}
 		}

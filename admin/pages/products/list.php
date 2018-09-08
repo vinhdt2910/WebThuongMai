@@ -63,6 +63,7 @@ require_once('template/_header.php');
 					<th>Ảnh</th>
 					<th>Sản phẩm</th>
 					<th>Ngày xuất bản</th>
+					<th>Trạng thái</th>
 					<th class="col_15 ta_r">Xóa</th>
 					<th class="col_5 ta_r">Sửa</th>
 				</tr>
@@ -77,8 +78,23 @@ require_once('template/_header.php');
 
 				<td><?php echo Helper::encodeHtml($product['Tensach']); ?></td>
 				<td align="center"><?php echo $product['Ngayxuatban']; ?></td>
+
+				<?php 
+					if($product['Trangthai'] == 1){
+				?>
+					<td align="center">Hiển thị</td>
+				<?php } else {?>
+					<td align="center">Ẩn</td>
+				<?php } ?>
+
 				<td class="ta_r">
-					<a href="/admin/?page=products&amp;action=remove&amp;id=<?php echo $product['Masach']; ?>">Xóa</a>
+					<?php 
+						if($product['Trangthai'] == 1){
+					?>
+						<a href="/admin/?page=products&amp;action=remove&amp;id=<?php echo $product['Masach']; ?>">Xóa</a>
+					<?php } else { ?>
+						<span class="inactive">Xóa</span>
+					<?php } ?>
 				</td>
 				<td class="ta_r">
 					<a href="/admin/?page=products&amp;action=edit&amp;id=<?php echo $product['Masach']; ?>">Sửa</a>

@@ -1461,9 +1461,14 @@ width: 200px;
 
 
 /* onecheckout */
-
 .onecheckout {
 	width:33%;
+	float:left;
+	text-align:left;
+} 
+
+.onecheckoutright {
+	width:66%;
 	float:left;
 	text-align:left;
 }

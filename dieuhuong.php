@@ -3,34 +3,50 @@
     $type='';
     if (isset($_GET['route'])) {
         $route = $_GET['route'];
-        // var_dump($function) ; exit();
-        if ($route == 'login')
+      
+        switch($route) {
+	
+            case 'login':
             include('login.php');
-        else if ($route == 'cate')
-        {
+            break;
+            
+            case 'cate':
             include('category.php');
-        }
-        else if ($route == 'inforuser')
-        {
-            include('inforuser.php');
-        }
-        else if ($route == 'cart')
-        {
-            include('cart.php');
-        }
-        else if ($route == 'regist')
-        {
-            include('regist.php');
-        }
-        else if($route == 'book')
-        {
-            include('book_detail.php');
-        }
-        else if($route == 'checkout')
-        {
-            include('checkout.php');
-        }
-    }
-    else include('home.php');
+            break;
 
+            case 'cart':
+            include('cart.php');
+            break;
+
+            case 'search':
+            include('search.php');
+            break;
+
+            case 'inforuser':
+            include('inforuser.php');
+            break;
+
+            case 'regist':
+            include('regist.php');
+            break;
+
+            case 'book':
+            include('book_detail.php');
+            break;
+            
+            case 'checkout':
+            include('checkout.php');
+            break;
+
+            case 'thanks':
+            include('thanks.php');
+            break;
+
+            default:
+            include('home.php');break;
+        
+        } 
+    } else  {
+        include('home.php');
+    }
 ?>

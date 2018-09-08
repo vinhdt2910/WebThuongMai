@@ -65,7 +65,7 @@ if (!empty($id)) {
 		<tr>
 			<th>Sản phẩm</th>
 			<th class="ta_r">Số lượng</th>
-			<th class="ta_r col_15">Đơn giá</th>
+			<th class="ta_r col_20">Đơn giá</th>
 		</tr>
 		
 		<?php foreach($items as $item) { ?>
@@ -79,12 +79,17 @@ if (!empty($id)) {
 				</td>
 				<td class="ta_r"><?php echo $item['Soluong']; ?></td>
 				<td class="ta_r">
-					&pound;<?php echo number_format($objBasket->itemTotal($item['Soluong'], $item['Giamua']), 2); ?>
+					<?php echo number_format($objBasket->itemTotal($item['Soluong'], $item['Giamua']), 2); ?> Đồng
 				</td>
 			</tr>
 		
 		<?php } ?>
 		
+		    <tr>
+						<td></td>
+						<td class="ta_r">Tổng tiền:</td>
+						<td class="ta_r"><?php echo number_format($objOrder->SumMoneyOrder($id)['Tongtien'], 2); ?> Đồng</td>						
+					</tr>
 	</table>
 	
 	<div class="dev br_td">&nbps;</div>

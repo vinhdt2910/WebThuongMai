@@ -161,7 +161,12 @@ class Catalogue extends Application {
 		return $this->db->fetchAll($sql);
 	}
 	
-	
+	public function getProductsByPublisher($publisher) {
+		$sql = "SELECT * FROM `{$this->_table_2}`
+				WHERE `Nhaphathanh` = '".$this->db->escape($publisher)."'
+				ORDER BY `Ngayxuatban` DESC";
+		return $this->db->fetchAll($sql);
+	}
 	
 	
 	
@@ -254,6 +259,16 @@ class Catalogue extends Application {
 	
 	
 	
+	public function removeProductLogic($id = null) {
+		if (!empty($id)) {
+			$sql = "UPDATE book set Trangthai = 0 WHERE Masach = $id";
+			return $this->db->query($sql);
+		}
+		return false;
+	}
+	
+
+
 	public function removeProduct($id = null) {
 		if (!empty($id)) {
 			$product = $this->getProduct($id);
@@ -269,8 +284,6 @@ class Catalogue extends Application {
 		}
 		return false;
 	}
-	
-	
 	
 	
 	

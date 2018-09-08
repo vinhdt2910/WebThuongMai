@@ -1,14 +1,12 @@
 <?php 
- 
-
-  if (isset($_GET['type'])) {
-    $type= $_GET['type'];
+  if (isset($_GET['key'])) {
+    $key= $_GET['key'];
 }
-if (isset($type)) {
-    $s = "select * from book_category where Maloaisach=" . $type;
-    $re = mysqli_query($conn, $s);
-    $r = mysqli_fetch_array($re);
-    $title = $r['Tenloai'];
+if (isset($key)) {
+    $sbook = "SELECT * FROM `book` WHERE Tensach LIKE '%".$key."%' and trangthai ='1'";
+    $re2 = mysqli_query($conn, $sbook);
+
+    $rowcount=mysqli_num_rows($re2);     
 }
 ?>
 <aside id="column_right"></aside>
@@ -17,21 +15,13 @@ if (isset($type)) {
     <div class="left"></div>
     <div class="right"></div>
     <div class="center">
-        <h1><?php echo $title; ?></h1>
+        <h1><?php if ($rowcount>0){echo 'Các sản phẩm được tìm';}else{echo 'Không có sản phẩm nào.';}  ?></h1>
     </div>
 </div>
 <div class="middle">
-
-    
     <div class="dmsp">
-
-       
         <?php
-                
-                $sbook = "SELECT * FROM `book` WHERE Loaisach = '".$type."' and trangthai ='1'";
-                 
-                    $re2 = mysqli_query($conn, $sbook);
-                   
+             
                     while ($r2 = mysqli_fetch_array($re2)) {
                         $today = date("Y-m-d");
                         $ck_date=date($r2['Thoigianck']);

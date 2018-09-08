@@ -9,6 +9,7 @@ class Validation {
 	
 	// validation messages
 	public $_message = array(
+		"name" => "Nhập vào tên danh mục sách",
 		"first_name"	=> "Please provide your first name",
 		"last_name"		=> "Please provide your last name",
 		"address_1"		=> "Please provide the first line of your address",
@@ -23,14 +24,20 @@ class Validation {
 		"password"		=> "Please choose your password",
 		"confirm_password"	=> "Please confirm your password",
 		"password_mismatch"	=> "Passwords did not match",
-		"Loaisach"		=> "Please select the category",
-		"Tensach"			=> "Please provide a name",
-		"Soluong"			=> "Please provide a quatity of book",
-		"Ngayxuatban"			=> "Please choose a date",
-		"Mota"	=> "Please provide a description",
-		"Gia"			=> "Please provide a price",
-		"Sotrang"          => "Please provide a number of page",
-		"name_duplicate"	=> "This name is already taken"
+		"Loaisach"		=> "Chọn 1 danh mục sách",
+		"Tensach"			=> "Nhập vào tên sách",
+		"Soluong"			=> "Nhập vào số lượng sách",
+		"Ngayxuatban"			=> "Chọn ngày xuất bản của sách",
+		"Mota"	=> "Thêm mô tả cho sách",
+		"Gia"			=> "Nhập vào giá sách",
+		"Sotrang"          => "Nhập vào số trang sách",
+		"name_duplicate"	=> "Tên này đã tồn tại!!!",
+		"fromDate" => "Vui lòng chọn 1 ngày muốn kiểm tra!!!",
+		"toDate" => "Vui lòng chọn 1 ngày muốn kiểm tra!!!",
+		"Chietkhau" => "Nhập vào số chiết khấu của sách",
+		"Thoigianck" => "Chọn thời gian chiết khấu của sách",
+		"Nhaphathanh" => "Chọn 1 nhà phát hành sách",
+		"Tennhaphathanh" => "Nhập vào tên nhà phát hành sách"
 	);
 	
 	// list of expected fields

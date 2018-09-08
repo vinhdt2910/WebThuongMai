@@ -23,10 +23,10 @@ if (!empty($id)) {
 		
 		require_once('template/_header.php'); 
 ?>
-<h1>Categories :: Remove</h1>
-<p>Are you sure you want to remove this record?<br />
-There is no undo!<br />
-<a href="<?php echo $yes; ?>">Yes</a> | <a href="<?php echo $no; ?>">No</a></p>
+<h1>Xóa danh mục sản phẩm</h1>
+<p>Bạn có chắc chắn muốn xóa danh mục sản phẩm này không?<br />
+Danh mục này sẽ bị xóa hẳn khỏi hệ thống !!!<br />
+<a href="<?php echo $yes; ?>">Có</a> | <a href="<?php echo $no; ?>">Không</a></p>
 <?php 
 		require_once('template/_footer.php'); 
 	}	

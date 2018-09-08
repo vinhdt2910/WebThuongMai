@@ -1,4 +1,3 @@
-
 <div class="top">
     <div class="left"></div>
     <div class="right"></div>
@@ -28,6 +27,7 @@
                     //var_dump($sbook) ; exit();
                     $Tong=0;
                     $i=0;
+                    $rowcount=mysqli_num_rows($re2);     
                     while ($r2 = mysqli_fetch_array($re2)) {
                         $Tong= $Tong+ $r2['Giamua'] * $r2['Soluong'];
                         $i++;
@@ -53,8 +53,8 @@
                     <input type="text" id="quantity<?php echo $i; ?>" value="<?php echo ($r2['Soluong']);?>" size="1" style="width:24px;" />&nbsp;
                     <a onclick="subvalue(<?php echo $i; ?>,<?php echo $r2['Masach']?>,<?php echo $r2['Magiohang']?>)" ><img src="Template/theme/default/image/subtract.png" class="subtractimg" align="absmiddle"/></a>
                 </td>
-                <td align="right" valign="top" class="price"><?php echo number_format($r2['Giamua']); ?>đ</td>
-                <td align="right" valign="top" class="total"><?php echo number_format($r2['Giamua']*$r2['Soluong']); ?>đ</td>
+                <td align="right" valign="top" class="price"><?php echo number_format($r2['Giamua']); ?> đ</td>
+                <td align="right" valign="top" class="total"><?php echo number_format($r2['Giamua']*$r2['Soluong']); ?> đ</td>
             </tr>
            
 
@@ -80,7 +80,9 @@
             <table>
                 <tr>
                     <td align="left"><a onclick="location = 'index.php'" class="button"><span>Tiếp tục mua hàng</span></a></td>
+                    <?php if ($rowcount>0){ ?>
                     <td align="right"><a onclick="location = 'index.php?route=checkout'" class="button"><span>Thanh toán</span></a></td>
+                    <?php } ?>
                 </tr>
             </table>
         </div>

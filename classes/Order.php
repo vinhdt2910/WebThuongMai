@@ -272,11 +272,10 @@ class Order extends Application {
 	
 	
 	public function updateOrder($id = null, $array = null) {
-		if (!empty($id) && !empty($array) && is_array($array) && array_key_exists('status', $array) && array_key_exists('notes', $array)) {
+		if (!empty($id) && !empty($array) && is_array($array) && array_key_exists('Tinhtrang', $array)) {
 			$sql = "UPDATE `{$this->_table}`
-					SET `status` = '".$this->db->escape($array['status'])."',
-					`notes` = '".$this->db->escape($array['notes'])."'
-					WHERE `id` = '".$this->db->escape($id)."'";
+					SET `Tinhtrang` = '".$this->db->escape($array['Tinhtrang'])."'
+					WHERE `Mahd` = '".$this->db->escape($id)."'";
 			return $this->db->query($sql);
 		}
 	}
@@ -291,19 +290,32 @@ class Order extends Application {
 	
 	public function removeOrder($id = null) {
 		if (!empty($id)) {
+			$sql1 = "DELETE FROM `{$this->_table_2}`
+					WHERE `Mahd` = '".$this->db->escape($id)."'";
 			$sql = "DELETE FROM `{$this->_table}`
-					WHERE `id` = '".$this->db->escape($id)."'";
+					WHERE `Mahd` = '".$this->db->escape($id)."'";
+			$this->db->query($sql1);
 			return $this->db->query($sql);
 		}
 	}
 	
 	
 	
+	public function numberOfOrderbyDate($fromDate = null, $toDate = null) {
+		if (!empty($id)) {
+			$sql = "SELECT";
+			return $this->db->query($sql);
+		}
+	}
 	
 	
 	
-	
-	
+	public function SumMoneyOrder($id = null){
+		if(!empty($id)){
+			$sql = "SELECT Sum(Giamua * Soluong) as Tongtien from cthoadon WHERE Mahd = $id";
+			return $this->db->fetchOne($sql);
+		}
+	}
 	
 	
 	

@@ -23,9 +23,9 @@ if (!empty($id)) {
 		
 		require_once('template/_header.php'); 
 ?>
-<h1>Xóa danh mục sách</h1>
-<p>Bạn có chắc chắn muốn xóa danh mục sách này không?<br />
-There is no undo!<br />
+<h1>Xóa danh mục nhà phát hành</h1>
+<p>Bạn có chắc chắn muốn xóa danh mục nhà phát hành này không?<br />
+Bản ghi sẽ mất hẳn trong hệ thống!!!<br />
 <a href="<?php echo $yes; ?>">Có</a> | <a href="<?php echo $no; ?>">Không</a></p>
 <?php 
 		require_once('template/_footer.php'); 
