@@ -1,6 +1,7 @@
 <?php
 session_start();
 include('connect.php');
+include('sendmail.php');
 
 if (isset($_SESSION['userid'])) {
     $userid = $_SESSION['userid'];
@@ -31,8 +32,23 @@ if (isset($_SESSION['userid'])) {
     mysqli_query($conn, $sqldelctgio);
     $sqldelgio = "DELETE FROM giohang Where Makh='".$userid."'";  
     mysqli_query($conn, $sqldelgio);
+   
+    $title='Thông tin đơn hàng: '.$mahd['mahd'];
+    $content='đây là nội dung đơn hàng';
+    $sqlemail="SELECT email FROM `user` WHERE User_ID='".$userid."'";
+    $queryemail = mysqli_query($conn, $sqlemail);
+    $email=mysqli_fetch_array($queryemail);
 
-}else  {
+    $mTo=$email['email'];
+    if (sendMail($title,$content,$mTo)==1)
+    {
+        echo 1; exit();
+    }
+   
+        
+}
+else  
+{
     // $sql="insert into giohang (MaKH,Ngaydat) values('".$userid ."',CURRENT_DATE())";
     //  mysqli_query($conn, $sql);
     //  $sql5 = "SELECT Max(Magiohang) as magio FROM `giohang`";

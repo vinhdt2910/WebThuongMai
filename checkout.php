@@ -329,7 +329,7 @@
            url: "checkout_action.php",
            method: "POST",
            success: function (response) {
-              
+              if(response=="1")
                window.location="index.php?route=thanks";
            }
        });
