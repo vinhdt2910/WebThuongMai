@@ -28,9 +28,36 @@ include('connect.php')
     <script src="Template/js/modernizr.custom.js"></script>
     <script src="Template/js/jquery/tab.js"></script>
     <script src="Template/js/common.js"></script>
+    <style>
+    #loading {
+  background-color:white;
+  position: fixed;
+  display: block;
+  top: 0;
+  bottom: 0;
+  z-index: 1000000;
+  opacity: 0.6;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+#loading img {
+  margin: auto;
+  display: block;
+  top: calc(50% - 150px);
+  left: calc(50% - 10px);
+  position: absolute;
+  z-index: 999999;
+  width:60px;
+}
+    </style>
 </head>
 <!-- Them Background Image -->
 <body>
+<div id="loading" style="display:none">
+        <img src="images/load.gif" alt="Loading..."/>
+    </div>
     <!-- Them Background Image -->
     <header id="header">
         <div class="toptop">
@@ -69,7 +96,7 @@ include('connect.php')
                   $magiohang=mysqli_fetch_array( $query5);
                      
                 ?>
-                         <label  id="tab_checkout">(<?php echo $magiohang["soluong"] ?>sản phẩm)<?php echo number_format($magiohang["tongtien"]) ?>đ</label>
+                         <label  id="tab_checkout">(0<?php echo $magiohang["soluong"] ?>sản phẩm)<?php echo number_format($magiohang["tongtien"]) ?>đ</label>
                          <?php  } else {?>
                             <label  id="tab_checkout">(0 sản phẩm)0.000đ</label>
                             <?php  }?>
@@ -192,56 +219,7 @@ include('connect.php')
             });
 
         });
-        //<!--
-        function getURLVar(urlVarName) {
-            var urlHalves = String(document.location).toLowerCase().split('?');
-            var urlVarValue = '';
-
-            if (urlHalves[1]) {
-                var urlVars = urlHalves[1].split('&');
-
-                for (var i = 0; i <= (urlVars.length) ; i++) {
-                    if (urlVars[i]) {
-                        var urlVarPair = urlVars[i].split('=');
-
-                        if (urlVarPair[0] && urlVarPair[0] == urlVarName.toLowerCase()) {
-                            urlVarValue = urlVarPair[1];
-                        }
-                    }
-                }
-            }
-
-            return urlVarValue;
-        }
-
-        // Active submenu item
-        $('.main-navigation li a[href="' + this.location.pathname + '"]').parent().addClass('onSelectedLi');
-         // Active submenu item
-         $('#nav li a[href="' + this.location.pathname + '"]').parent().addClass('onSelectedLi');
-        
-        $(document).ready(function () {
-            route = getURLVar('route');
-
-            if (!route) {
-                $('#tab_home').addClass('selected');
-            } else {
-                part = route.split('/');
-
-                if (route == 'common/home') {
-                    $('#tab_home').addClass('selected');
-                } else if (route == 'account/login') {
-                    $('#tab_login').addClass('selected');
-                } else if (part[0] == 'account') {
-                    $('#tab_account').addClass('selected');
-                } else if (route == 'checkout/cart') {
-                    $('#tab_cart').addClass('selected');
-                } else if (part[0] == 'checkout') {
-                    $('#tab_checkout').addClass('selected');
-                } else {
-                    $('#tab_home').addClass('selected');
-                }
-            }
-        });
+       
     </script>
     <script type="text/javascript">
 
@@ -267,20 +245,7 @@ include('connect.php')
     </script>
     <h1 style="display: none">Thanhhabooks</h1>
    
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $(".sign_in").live("hover", function () {
-                $("#sign_box").fadeIn("fast");
-                $("#sign_box").show();
-            }
-            );
-
-            $("#sign_box").live("mouseleave", function () {
-                $("#sign_box").show();
-            }
-             );
-        });
-    </script>
+   
     <div class="wraper3">
         <div class="module_middle_top">
             <div id="column_middle_top">
@@ -460,18 +425,24 @@ include('connect.php')
 
                         <div class="welpow">
                             <div class="welcome">
+                <?php
+                $sqladdress= "SELECT * FROM `business`";
+                $queryemail = mysqli_query($conn, $sqladdress);
+                $radd = mysqli_fetch_array($queryemail)
+                ?>
+
                                 <div>
                                     <p>
-                                        <strong>VĂN PHÒNG HÀ NỘI</strong>
+                                        <strong><?php echo $radd['name']?></strong>
                                     </p>
                                     <p>
-                                        Khu đô thị Viglacera Tây Mỗ, Phường Tây Mỗ, quận Nam Từ Liêm, thành phố Hà Nội
+                                    <?php echo $radd['address']?>  
                                     </p>
                                     <p>
-                                        Hotline: 0977 636 101
+                                        Hotline: <?php echo $radd['telephone']?>
                                     </p>
                                     <p>
-                                        Email: thanhhabooks@gmail.com
+                                        Email: <?php echo $radd['email']?>
                                     </p>
                                 </div>
                             </div>
@@ -500,7 +471,7 @@ include('connect.php')
 
 
                            
-                            <div>Bản quyền thuộc về &copy; Design by <a href="#" title="Web trọn gói tại" target="_blank">NamnguyenIT</a></div>
+                            <div>Bản quyền thuộc về &copy; Design by <a href="#" title="Web trọn gói tại" target="_blank"> <?php echo $radd['website']?></a></div>
 
 
                         </div>
@@ -523,7 +494,16 @@ include('connect.php')
                 </div>
             </div>
         </div>
-
+<script>
+    $(document).ready(function(){
+    $(document).ajaxStart(function() {
+        $("#loading").show();
+    });
+    $(document).ajaxStop(function() {
+        $("#loading").hide();
+    });
+});
+</script>
 
         <!--Start of Tawk.to Script-->
         <script type="text/javascript">

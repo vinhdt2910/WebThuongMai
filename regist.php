@@ -125,7 +125,7 @@
             $("#confirm").focus();
             return false;
         }
-
+       
         $.ajax({
     url: "check_dang_ky.php",
     method: "POST",
@@ -135,7 +135,10 @@
       alert("Tài khoản đã đăng ký thành công");
          window.location="index.php";    
         } 
-        else {
+        else if(response == "2") {
+            error.html("Email đã tồn tại !");
+        }
+        else{
             error.html("Lỗi hệ thống !");
         }
     }

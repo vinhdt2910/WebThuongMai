@@ -10,6 +10,14 @@ include('sendmail.php');
     $pass=$_POST["password"];
     $password = md5($pass);
   
+    $sqlemail="SELECT * FROM `user` WHERE Email='".$email."'";
+    $queryemail = mysqli_query($conn, $sqlemail);
+    $rowcount2=mysqli_num_rows($queryemail);     
+    if  ( $rowcount2>0)
+    {
+        echo 2; exit();
+    }
+    else{
     $sql1 = "INSERT INTO user (User_ID, Email, Password, Hoten, Sodt, Diachi, Loainguoidung, Trangthai) VALUES (NULL, '$email', '$password', '$Hoten', '$Sodt', '$Diachi', '2', '1')";
 
     $query1 = mysqli_query($conn, $sql1);
@@ -23,12 +31,12 @@ include('sendmail.php');
         {
             echo 1; exit();
         }
-        else  echo 2; exit();
+        else  echo 0; exit();
     }
     else{
         echo 0;
         exit();
     }
-   
+}
 ?>
 <br />

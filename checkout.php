@@ -26,6 +26,9 @@
                 </select>
                
       </div>
+      <div class="buttons">
+        <div style="text-align:right;"><a href="index.php?route=inforuser" class="button"><span>Thay đổi địa chỉ</span></a></div>
+      </div>
       <?php }else{?>
       <div class="divclear">
                     <span class="required">*</span> Họ và tên:<br>
@@ -226,13 +229,7 @@
                         <span class="required">*</span> Xác nhận mật khẩu: <br>
                         <input name="confirm" value="" class="small-field" type="password"><br>
                     </div>
-                    <div style="clear: both; padding-top: 15px; border-top: 1px solid #EEEEEE;">
-                        <input name="newsletter" value="1" id="newsletter" type="checkbox">
-                        <label for="newsletter">Đăng ký nhận Thanh Hà Books tin khuyến mại.</label>
-                        <br>
-                        <input name="shipping_address" value="1" id="shipping" checked="checked" style="display:none;" type="checkbox">
-                        <br>
-                    </div>
+                   
                     <script type="text/javascript">
 <!--
                         $('.fancybox').fancybox({

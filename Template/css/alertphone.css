@@ -37,7 +37,7 @@
  -o-transition:visibility .5s;
  transition:visibility .5s;
  right:40px;
- top:18px
+ top:28px
 }
 .alo-phone.alo-show {
  visibility:visible

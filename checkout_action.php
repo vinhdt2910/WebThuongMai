@@ -1,4 +1,4 @@
-<? php
+<?php
 session_start();
 include('connect.php');
 include('sendmail.php');
@@ -6,8 +6,12 @@ include('sendmail.php');
 if (isset($_SESSION['userid'])) {
     $userid = $_SESSION['userid'];
 
-    // $sql1 = "INSERT INTO `hoadon`(Makh,Ngaydat,Tinhtrang) values('".$userid ."',CURRENT_DATE(),'Chưa xử lý')";
-    // $query1 = mysqli_query($conn, $sql1);
+    $sqlemail="SELECT * FROM `user` WHERE User_ID='".$userid."'";
+    $queryemail = mysqli_query($conn, $sqlemail);
+    $user=mysqli_fetch_array($queryemail);
+
+    $sql1 = "INSERT INTO `hoadon`(Makh,Ngaydat,Tinhtrang) values('".$userid ."',CURRENT_DATE(),'Chưa xử lý')";
+    $query1 = mysqli_query($conn, $sql1);
 
     $sqlmaHD="SELECT Max(Mahd) as mahd FROM `hoadon`";
     
@@ -19,27 +23,53 @@ if (isset($_SESSION['userid'])) {
     $query2 = mysqli_query($conn, $sql2);
     $rowcount2=mysqli_num_rows($query2);     
   
-    // if($rowcount2>0)
-    // {
-    //     while ($r2 = mysqli_fetch_array($query2))
-    //     {
-    //         $sqlinsert = "INSERT INTO `cthoadon`(`Mahd`, `Masach`, `Soluong`, `Giamua`) values (".$mahd['mahd'].",".$r2['Masach'].",".$r2['Soluong'].",".$r2['Giamua'].");";
+    if($rowcount2>0)
+    {
+        while ($r2 = mysqli_fetch_array($query2))
+        {
+            $sqlinsert = "INSERT INTO `cthoadon`(`Mahd`, `Masach`, `Soluong`, `Giamua`) values (".$mahd['mahd'].",".$r2['Masach'].",".$r2['Soluong'].",".$r2['Giamua'].");";
             
-    //         mysqli_query($conn, $sqlinsert);
-    //     }
-    // }
-    // $sqldelctgio = "DELETE FROM chitietgiohang Where Magiohang=(SELECT Magiohang FROM giohang WHERE Makh= ".$userid.")";  
-    // mysqli_query($conn, $sqldelctgio);
-    // $sqldelgio = "DELETE FROM giohang Where Makh='".$userid."'";  
-    // mysqli_query($conn, $sqldelgio);
+            mysqli_query($conn, $sqlinsert);
+        }
+    }
+    $sqldelctgio = "DELETE FROM chitietgiohang Where Magiohang=(SELECT Magiohang FROM giohang WHERE Makh= ".$userid.")";  
+    mysqli_query($conn, $sqldelctgio);
+    $sqldelgio = "DELETE FROM giohang Where Makh='".$userid."'";  
+    mysqli_query($conn, $sqldelgio);
    
     $title='Thông tin đơn hàng: '.$mahd['mahd'];
+
+    $hang=' ';
+    $tongsotien = 0;
+    if (isset($_SESSION['userid'])) {
+        $userid = $_SESSION['userid'];
+        $sbook = "SELECT ct.Mahd, ct.Masach,ct.Soluong, ct.Giamua,b.Tensach,b.anh FROM `cthoadon` ct JOIN `hoadon` g on ct.Mahd = g.Mahd join `book` b on b.Masach=ct.Masach where g.Mahd='".$mahd['mahd']."'AND g.Makh = '".$userid."'";
+        $re2 = mysqli_query($conn, $sbook);
+        $pos = 1;
+        $tongsotien = 0;
+         while ($row = mysqli_fetch_array($re2)) 
+        {
+            $tongsotien += $row['Soluong']*$row['Giamua'];
+            $hang .='<tr>
+            <td class="cotSTT">'.$pos++.'</td>
+            <td class="cotTenSanPham">'.$row['Tensach'].'</td>
+            <td class="cotGia">'.$row['Giamua'].'</td>
+            <td class="cotSoLuong" align="center">'.$row['Soluong'].'</td>
+            <td class="cotSo">'.number_format(($row['Soluong']*$row['Giamua']),0,",",".").'</td>
+            </tr>';
+        }       
+    }
+
+
     $content='
+    <!DOCTYPE html>
+    <html lang="vi">
+    <head>
 <style>
 .page {
     width: 21cm;
     overflow:hidden;
-    min-height:297mm;
+   
     padding: 2.5cm;
     margin-left:auto;
     margin-right:auto;
@@ -49,7 +79,6 @@ if (isset($_SESSION['userid'])) {
 .subpage {
     padding: 1cm;
     border: 5px red solid;
-    height: 237mm;
     outline: 2cm #FFEAEA solid;
 }
  @page {
@@ -170,18 +199,30 @@ button {
     text-align: center;
 }
 </style>
+</head>
+<body>
     <div id="page" class="page">
-    <div class="header">
-        <div class="logo"><img src="image/data/34.jpg"/></div>
-        <div class="company">Thanh Hà Book</div>
-    </div>
-  <br/>
+    
   <div class="title">
         HÓA ĐƠN THANH TOÁN
         <br/>
         -------oOo-------
   </div>
   <br/>
+  <div>
+  <b>Tên khách hàng: </b>'.$user['Hoten'].'
+  
+  </div>
+  <div>
+  <b>Email: </b>'.$user['Email'].'
+  </div>
+  <div>
+  <b>SĐT: </b>'.$user['Sodt'].'
+  </div>
+  <div>
+  <b>Địa chỉ: </b>'.$user['Diachi'].'
+  </div>
+  
   <br/>
   <table class="TableData">
     <tr>
@@ -191,48 +232,33 @@ button {
       <th>Số</th>
       <th>Thành tiền</th>
      </tr>'.
-    
-// $tongsotien = 0;
-// if (isset($_SESSION['userid'])) {
-//     $userid = $_SESSION['userid'];
-//     $sbook = "SELECT ct.Mahd, ct.Masach,ct.Soluong, ct.Giamua,b.Tensach,b.anh FROM `cthoadon` ct JOIN `hoadon` g on ct.Mahd = g.Mahd join `book` b on b.Masach=ct.Masach where g.Makh = '".$userid."'";
-//     $re2 = mysqli_query($conn, $sbook);
-//     $pos = 1;
-//     $tongsotien = 0;
-//      while ($row = mysqli_fetch_array($re2)) {
-//     {
-//         $tongsotien += $row['Soluong']*$row['Giamua'];
-//         echo "<tr>";
-//         echo "<td class=\"cotSTT\">".$pos++."</td>";
-//         echo "<td class=\"cotTenSanPham\">".$row['Tensach']."</td>";
-//         echo "<td class=\"cotGia\"><div id='giasp".$row['Masach']."' name='giasp".$row['Masach']."' value='".$row['Giamua']."'>".number_format($row['Giamua'],0,",",".")."</div></td>";
-//         echo "<td class=\"cotSoLuong\" align='center'>".$row['Soluong']."</td>";
-//         echo "<td class=\"cotSo\">".number_format(($row['Soluong']*$row['Giamua']),0,",",".")."</td>";
-//         echo "</tr>";
-//     }       
-// }.'
-    .'<tr>
+     $hang.'<tr>
       <td colspan="4" class="tong">Tổng cộng</td>
-      <td class="cotSo">'.eho number_format(($tongsotien),0,",",".");.' đ</td>
+      <td class="cotSo">'.number_format(($tongsotien),0,",",".").' đ</td>
     </tr>
+   
+    <tr>
+    <td colspan="5" style="background-color:#069;color:#fff;font-size:12px;font-weight:bold;padding:0.5em 1em" align="left"></td>
+  </tr>
+  <tr>
+  <td colspan="5">&nbsp;</td>
+</tr>
+  <tr>
+    <td colspan="5" style="font-size:10px;border-top:1px solid #069" align="center"><a style="color:#069;font-weight:bold;text-decoration:none" target="_blank" >Tủ sách thiếu nhi</a> được hỗ trợ bởi: <a style="text-decoration:none;color:#374953" target="_blank" >Thanh Hà Books</a></td>
+  </tr>
   </table>
-  <div class="footer-left"> Hà nội, ngày 09 tháng 09 năm 2018<br/>
-    Khách hàng </div>
-  <div class="footer-right">  Hà nội, ngày 09 tháng 09 năm 2018<br/>
-    Nhân viên </div>
-</div>';
-  
+  Cảm ơn bạn đã quan tâm đến sản phẩm Thanh Hà Books của chúng tôi. Chúng tôi đã nhận được đơn hàng của bạn và sẽ được xử lý sau khi bạn xác nhận thanh toán.
 
-  echo($contnt);exit();
-    $sqlemail="SELECT email FROM `user` WHERE User_ID='".$userid."'";
-    $queryemail = mysqli_query($conn, $sqlemail);
-    $email=mysqli_fetch_array($queryemail);
+</div>
+</body>
+</html>
+';
 
-    $mTo=$email['email'];
-    if (sendMail($title,$content,$mTo)==1)
-    {
-        echo 1; exit();
-    }
+$mTo=$user['Email'];
+if (sendMail($title,$content,$mTo)==1)
+{
+    echo 1; exit();
+}
    
         
 }

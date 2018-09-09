@@ -42,6 +42,10 @@
             include('thanks.php');
             break;
 
+            case 'chitiethd':
+            include('chitietdonhang.php');
+            break;
+
             default:
             include('home.php');break;
         
