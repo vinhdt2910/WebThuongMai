@@ -146,7 +146,8 @@
     function phonenumber(inputtxt)
     {
         var phoneno = /^\d{10}$/;
-        if(inputtxt.match(phoneno))
+        var phoneno1 = /^\d{11}$/;
+        if(inputtxt.match(phoneno) || inputtxt.match(phoneno1))
         {
             return true;
         }

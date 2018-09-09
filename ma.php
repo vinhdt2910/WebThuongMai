@@ -1,4 +1,4 @@
-<? php
+<?php
 session_start();
 include('connect.php');
 include('sendmail.php');
@@ -190,30 +190,9 @@ button {
       <th>Đơn giá</th>
       <th>Số</th>
       <th>Thành tiền</th>
-     </tr>'.
-    
-// $tongsotien = 0;
-// if (isset($_SESSION['userid'])) {
-//     $userid = $_SESSION['userid'];
-//     $sbook = "SELECT ct.Mahd, ct.Masach,ct.Soluong, ct.Giamua,b.Tensach,b.anh FROM `cthoadon` ct JOIN `hoadon` g on ct.Mahd = g.Mahd join `book` b on b.Masach=ct.Masach where g.Makh = '".$userid."'";
-//     $re2 = mysqli_query($conn, $sbook);
-//     $pos = 1;
-//     $tongsotien = 0;
-//      while ($row = mysqli_fetch_array($re2)) {
-//     {
-//         $tongsotien += $row['Soluong']*$row['Giamua'];
-//         echo "<tr>";
-//         echo "<td class=\"cotSTT\">".$pos++."</td>";
-//         echo "<td class=\"cotTenSanPham\">".$row['Tensach']."</td>";
-//         echo "<td class=\"cotGia\"><div id='giasp".$row['Masach']."' name='giasp".$row['Masach']."' value='".$row['Giamua']."'>".number_format($row['Giamua'],0,",",".")."</div></td>";
-//         echo "<td class=\"cotSoLuong\" align='center'>".$row['Soluong']."</td>";
-//         echo "<td class=\"cotSo\">".number_format(($row['Soluong']*$row['Giamua']),0,",",".")."</td>";
-//         echo "</tr>";
-//     }       
-// }.'
-    .'<tr>
+     </tr><tr>
       <td colspan="4" class="tong">Tổng cộng</td>
-      <td class="cotSo">'.eho number_format(($tongsotien),0,",",".");.' đ</td>
+      <td class="cotSo">0 đ</td>
     </tr>
   </table>
   <div class="footer-left"> Hà nội, ngày 09 tháng 09 năm 2018<br/>
@@ -223,7 +202,7 @@ button {
 </div>';
   
 
-  echo($contnt);exit();
+ 
     $sqlemail="SELECT email FROM `user` WHERE User_ID='".$userid."'";
     $queryemail = mysqli_query($conn, $sqlemail);
     $email=mysqli_fetch_array($queryemail);

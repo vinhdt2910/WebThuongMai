@@ -12,7 +12,7 @@
 <body>
 <div id="header">
 	<div id="header_in">
-		<h5><a href="/admin/?page=products">Nguyen Nam Book Store Management</a></h5>
+		<h5><a href="/admin/?page=products">Thanh Ha Book store</a></h5>
 		<?php
 			if (Login::isLogged(Login::$_login_admin)) {
 				echo '<div id="logged_as">Xin chào: <strong>';
