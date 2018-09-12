@@ -62,6 +62,7 @@ require_once('template/_header.php');
 					<th class="col_5">Id</th>
 					<th>Ảnh</th>
 					<th>Sản phẩm</th>
+					<th>Số lượng</th>
 					<th>Ngày xuất bản</th>
 					<th>Trạng thái</th>
 					<th class="col_15 ta_r">Xóa</th>
@@ -77,6 +78,7 @@ require_once('template/_header.php');
 				<td><img src="/image/<?php echo $product['anh']; ?>" width="50"></td>
 
 				<td><?php echo Helper::encodeHtml($product['Tensach']); ?></td>
+				<td><?php echo ($product['Soluong']); ?></td>
 				<td align="center"><?php echo $product['Ngayxuatban']; ?></td>
 
 				<?php 

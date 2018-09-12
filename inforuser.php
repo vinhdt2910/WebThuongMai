@@ -122,7 +122,8 @@ if (isset($_SESSION['userid'])) {
                         <tr>
                             <td><?php echo $r2['Mahd'] ?></td>
                             <td>
-                                <?php echo $r2['Tinhtrang'] ?>
+                                <?php 
+                                if($r2['Tinhtrang']==0) echo 'Chờ xử lý'; else{ if($r2['Tinhtrang']==1) echo 'Hủy'; else  echo 'Duyệt';}?>
                             </td>
                             <td><?php echo number_format($r2['tongtien']); ?> đ</td>
                             <td><?php echo $newDate = date("d-m-Y", strtotime($r2['Ngaydat'])); ?></td>
