@@ -10,7 +10,7 @@ if (isset($_SESSION['userid'])) {
     $queryemail = mysqli_query($conn, $sqlemail);
     $user=mysqli_fetch_array($queryemail);
 
-    $sql1 = "INSERT INTO `hoadon`(Makh,Ngaydat,Tinhtrang) values('".$userid ."',CURRENT_DATE(),'Chưa xử lý')";
+    $sql1 = "INSERT INTO `hoadon`(Makh,Ngaydat,Tinhtrang) values('".$userid ."',CURRENT_DATE(),'0')";
     $query1 = mysqli_query($conn, $sql1);
 
     $sqlmaHD="SELECT Max(Mahd) as mahd FROM `hoadon`";

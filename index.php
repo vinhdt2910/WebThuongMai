@@ -96,7 +96,7 @@ include('connect.php')
                   $magiohang=mysqli_fetch_array( $query5);
                      
                 ?>
-                         <label  id="tab_checkout">(0<?php echo $magiohang["soluong"] ?>sản phẩm)<?php echo number_format($magiohang["tongtien"]) ?>đ</label>
+                         <label  id="tab_checkout">(<?php echo $magiohang["soluong"] ?>sản phẩm)<?php echo number_format($magiohang["tongtien"]) ?>đ</label>
                          <?php  } else {?>
                             <label  id="tab_checkout">(0 sản phẩm)0.000đ</label>
                             <?php  }?>

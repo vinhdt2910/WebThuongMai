@@ -60,7 +60,7 @@ if (isset($type)) {
                         </div>
 
                         <div class="metadessp">
-                            <b>Mã sản phẩm:</b>
+                            <b>Mã sản phẩm: </b><?php echo ($r['Masach']); ?>
                             <div><b>Trạng thái:</b> <?php if( $r['Soluong']>0) echo 'Số lượng sách còn'; else echo 'hết hàng'; ?></div>
 
 
@@ -86,7 +86,7 @@ if (isset($type)) {
                         <!-- <form action="addcart.php" method="post" enctype="multipart/form-data" id="product"> -->
                         <div class="datmuasp">
                             <div>
-                                Số lượng: <input type="text" id="quantity" name="quantity" size="2" value="1" />
+                                Số lượng: <input type="text" id="quantity" size="3" name="quantity" value="1" />
                                 &nbsp;
                                 <!-- <a href="index.php?route=cart" class="add_to_cart"> -->
                                     <input type="button" value="Mua hàng" id="button-cart" />
@@ -204,8 +204,9 @@ if (isset($type)) {
    
     function checkSL() {
         var slkhach = $("#quantity").val();
+
         var slton=<?php echo $r['Soluong']; ?>;
-        if(isNaN(slkhach))
+        if($.isNumeric(slkhach)==false)
         {
             alert('Phải nhập số vào số lượng');
             $("#quantity").focus();

@@ -1,6 +1,6 @@
 <?php 
 $id = Url::getParam('id');
-
+$email = new Email();
 if (!empty($id)) {
 	
 	$objOrder = new Order();
@@ -33,11 +33,16 @@ if (!empty($id)) {
 			if ($objValid->isValid()) {
 				
 				if ($objOrder->updateOrder($id, $objValid->_post)) {
-					if ($status == 'Duyệt'){
+					if ($status == '2'){
 						foreach($items as $item) { 
 							$objOrder->updateQuatityOfProduct($item['Masach'], $item['Soluong']);
 						}
-					}				
+						
+					}
+					if	($status=='1')
+					{
+						$email->sendMail('Email xác nhận hủy đơn hàng!!!', $email->wrapEmail('Cảm ơn bạn đã mua hàng của nhà sách, đơn hàng của bạn đã được hủy theo nhu cầu!!!'), $user['Email']);
+					}			
 					Helper::redirect('/admin'.Url::getCurrentUrl(array('action', 'id')).'&action=edited');					
 				} else {
 					Helper::redirect('/admin'.Url::getCurrentUrl(array('action', 'id')).'&action=edited-failed');
@@ -122,17 +127,17 @@ if (!empty($id)) {
 						<td>
 
 							<?php 
-								if ( $order['Tinhtrang'] == 'Chờ xử lý'){
+								if ( $order['Tinhtrang'] == 0){
 							?>		
 									<select name="Tinhtrang" id="Tinhtrang" class="sel">
-										<option value="<?php  echo $order['Tinhtrang']; ?>"><?php  echo $order['Tinhtrang']; ?></option>
-										<option value="Chờ xử lý">Chờ xử lý</option>
-										<option value="Hủy">Hủy</option>
-										<option value="Duyệt">Duyệt</option>
+										<option value="<?php  echo $order['Tinhtrang']; ?>"><?php if($order['Tinhtrang']==0) echo 'Chờ xử lý'; else{ if($order['Tinhtrang']==1) echo 'Hủy'; else  echo 'Duyệt';} ?></option>
+										<option value="0">Chờ xử lý</option>
+										<option value="1">Hủy</option>
+										<option value="2">Duyệt</option>
 									</select>
-							<?php 
+							<?php 	
 								} else {
-									echo $order['Tinhtrang'];
+									if($order['Tinhtrang']==0) echo 'Chờ xử lý'; else{ if($order['Tinhtrang']==1) echo 'Hủy'; else  echo 'Duyệt';}
 								}
 							?>
 						</td>
@@ -152,7 +157,7 @@ if (!empty($id)) {
 							</div>
 							
 							<?php
-								if($order['Tinhtrang'] == 'Chờ xử lý'){
+								if($order['Tinhtrang'] == '0'){
 							?>
 								<label for="btn_update" class="sbm sbm_blue fl_l">
 									<input type="submit" id="btn_update" class="btn" value="Cập nhật" />

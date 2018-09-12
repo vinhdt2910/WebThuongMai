@@ -69,10 +69,10 @@ require_once('template/_header.php');
 				<td><?php echo $order['Mahd']; ?></td>
 				<td><?php echo $objUser->getUser($order['Makh'])['Hoten']; ?></td>
 				<td><?php echo $order['Ngaydat']; ?></td>
-				<td><?php echo $order['Tinhtrang']; ?></td>
+				<td><?php if($order['Tinhtrang']==0) echo 'Chờ xử lý'; else{ if($order['Tinhtrang']==1) echo 'Hủy'; else  echo 'Duyệt';} ?></td>
 
 				<td class="ta_r">
-				<?php if ($order['Tinhtrang'] == 'Hủy') { ?>
+				<?php if ($order['Tinhtrang'] == '1') { ?>
 					<a href="/admin/?page=orders&amp;action=remove&amp;id=<?php echo $order['Mahd']; ?>">Xóa</a>
 				<?php } else { ?>
 					<span class="inactive">Xóa</span>

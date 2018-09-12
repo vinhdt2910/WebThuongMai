@@ -22,7 +22,7 @@
         <?php
                 if (isset( $_SESSION['userid'])){
                     $userid = $_SESSION['userid'];
-                $sbook = "SELECT ct.Magiohang, ct.Masach,ct.Soluong, ct.Giamua,b.Tensach,b.anh FROM `chitietgiohang` ct JOIN `giohang` g on ct.Magiohang = g.Magiohang join `book` b on b.Masach=ct.Masach where g.Makh = '".$userid."'";
+                $sbook = "SELECT ct.Magiohang, ct.Masach,ct.Soluong, ct.Giamua,b.Tensach,b.anh,b.Soluong as 'Slton' FROM `chitietgiohang` ct JOIN `giohang` g on ct.Magiohang = g.Magiohang join `book` b on b.Masach=ct.Masach where g.Makh = '".$userid."'";
                     $re2 = mysqli_query($conn, $sbook);
                     //var_dump($sbook) ; exit();
                     $Tong=0;
@@ -49,8 +49,8 @@
                 </td>
 
                 <td align="right" valign="top">
-                    <a onclick="plusvalue(<?php echo $i; ?>,<?php echo $r2['Masach']?>,<?php echo $r2['Magiohang']?>)" ><img src="Template/theme/default/image/plus.png" class="plusimg" align="absmiddle" /></a>&nbsp;
-                    <input type="text" id="quantity<?php echo $i; ?>" value="<?php echo ($r2['Soluong']);?>" size="1" style="width:24px;" />&nbsp;
+                    <a onclick="plusvalue(<?php echo $i; ?>,<?php echo $r2['Masach']?>,<?php echo $r2['Magiohang']?>,<?php echo $r2['Slton'] ?>)" ><img src="Template/theme/default/image/plus.png" class="plusimg" align="absmiddle" /></a>&nbsp;
+                    <input readonly="true" type="text" id="quantity<?php echo $i; ?>" value="<?php echo ($r2['Soluong']);?>" size="1" style="width:24px;" />&nbsp;
                     <a onclick="subvalue(<?php echo $i; ?>,<?php echo $r2['Masach']?>,<?php echo $r2['Magiohang']?>)" ><img src="Template/theme/default/image/subtract.png" class="subtractimg" align="absmiddle"/></a>
                 </td>
                 <td align="right" valign="top" class="price"><?php echo number_format($r2['Giamua']); ?> đ</td>
@@ -89,9 +89,13 @@
     </form>
 </div>
 <script>
-function plusvalue(i,b,c){
+function plusvalue(i,b,c,t){
+    
     document.getElementById("quantity"+i).value = parseInt(document.getElementById("quantity"+i).value)+1;
     var quantity=document.getElementById("quantity"+i).value;
+    if(quantity>t)
+    {alert('Số lượng sách trong kho chỉ còn: '+t)}
+    else{
     var book= b;
     var cart= c;
     $.ajax({
@@ -104,6 +108,7 @@ function plusvalue(i,b,c){
         } 
     }
 });
+}
 }
 
 function removebook(i,e){
