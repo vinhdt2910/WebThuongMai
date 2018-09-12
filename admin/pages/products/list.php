@@ -105,16 +105,19 @@ require_once('template/_header.php');
 			
 		</table>
 	</div>
+	<div>
+	<div>
 	<?php echo $objPaging->getPaging(); ?>
-
-	<?php 
+		<?php 
 		} else {
 			echo '<p>'.$empty.'</p>';
 		} 
-	?>
+		?>
+	</div>
+	
+</div>
 
 <?php require_once('template/_footer.php'); ?>
-</div>
 
 
 

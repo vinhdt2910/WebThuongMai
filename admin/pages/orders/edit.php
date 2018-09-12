@@ -24,7 +24,7 @@ if (!empty($id)) {
 			
 			
 		if ($objForm->isPost('Tinhtrang')) {
-			
+			$status = $objForm->getPost('Tinhtrang');
 			$objValid->_expected = array('Tinhtrang');
 			$objValid->_required = array('Tinhtrang');
 			
@@ -32,7 +32,12 @@ if (!empty($id)) {
 			
 			if ($objValid->isValid()) {
 				
-				if ($objOrder->updateOrder($id, $objValid->_post)) {				
+				if ($objOrder->updateOrder($id, $objValid->_post)) {
+					if ($status == 'Duyệt'){
+						foreach($items as $item) { 
+							$objOrder->updateQuatityOfProduct($item['Masach'], $item['Soluong']);
+						}
+					}				
 					Helper::redirect('/admin'.Url::getCurrentUrl(array('action', 'id')).'&action=edited');					
 				} else {
 					Helper::redirect('/admin'.Url::getCurrentUrl(array('action', 'id')).'&action=edited-failed');
@@ -80,7 +85,7 @@ if (!empty($id)) {
 								<td><?php echo $product['Masach']; ?></td>
 								<td><?php echo Helper::encodeHtml($product['Tensach']); ?></td>
 								<td class="ta_r"><?php echo $item['Soluong']; ?></td>
-								<td class="ta_r"><?php echo number_format(($item['Giamua'] * $item['Soluong']), 2); ?> đ</td>						
+								<td class="ta_r"><?php echo number_format(($item['Giamua'] * $item['Soluong']), 2); ?> Đồng</td>						
 							</tr>
 						
 						<?php } ?>
@@ -115,12 +120,21 @@ if (!empty($id)) {
 					<tr>
 						<th><label for="status">Trạng thái hóa đơn:</label></th>
 						<td>
-								<select name="Tinhtrang" id="Tinhtrang" class="sel">
-									<option value="<?php  echo $order['Tinhtrang']; ?>"><?php  echo $order['Tinhtrang']; ?></option>
-									<option value="Chờ xử lý">Chờ xử lý</option>
-									<option value="Hủy">Hủy</option>
-									<option value="Đang xử lý">Đang xử lý</option>
-								</select>
+
+							<?php 
+								if ( $order['Tinhtrang'] == 'Chờ xử lý'){
+							?>		
+									<select name="Tinhtrang" id="Tinhtrang" class="sel">
+										<option value="<?php  echo $order['Tinhtrang']; ?>"><?php  echo $order['Tinhtrang']; ?></option>
+										<option value="Chờ xử lý">Chờ xử lý</option>
+										<option value="Hủy">Hủy</option>
+										<option value="Duyệt">Duyệt</option>
+									</select>
+							<?php 
+								} else {
+									echo $order['Tinhtrang'];
+								}
+							?>
 						</td>
 					</tr>
 			
@@ -137,10 +151,16 @@ if (!empty($id)) {
 								<a href="<?php echo '/admin'.Url::getCurrentUrl(array('action', 'id')); ?>" class="btn">Quay lại</a>
 							</div>
 							
-							<label for="btn_update" class="sbm sbm_blue fl_l">
-								<input type="submit" id="btn_update" class="btn" value="Cập nhật" />
-							</label>
-							
+							<?php
+								if($order['Tinhtrang'] == 'Chờ xử lý'){
+							?>
+								<label for="btn_update" class="sbm sbm_blue fl_l">
+									<input type="submit" id="btn_update" class="btn" value="Cập nhật" />
+								</label>	
+							<?php } else {
+
+							}
+							?>				
 						</td>
 					</tr>
 				

@@ -59,7 +59,6 @@ require_once('template/_header.php');
 					<th>Số điện thoai</th>
 					<th>Email</th>
 					<th class="col_15 ta_r">Xóa</th>
-					<th class="col_5 ta_r">Hiển thị</th>
 				</tr>
 			</thead>
 				

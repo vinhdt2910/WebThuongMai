@@ -31,13 +31,17 @@ class Validation {
 		"Mota"	=> "Thêm mô tả cho sách",
 		"Gia"			=> "Nhập vào giá sách",
 		"Sotrang"          => "Nhập vào số trang sách",
+		"Soluong" => "Nhập vào số lượng sách",
 		"name_duplicate"	=> "Tên này đã tồn tại!!!",
 		"fromDate" => "Vui lòng chọn 1 ngày muốn kiểm tra!!!",
 		"toDate" => "Vui lòng chọn 1 ngày muốn kiểm tra!!!",
 		"Chietkhau" => "Nhập vào số chiết khấu của sách",
 		"Thoigianck" => "Chọn thời gian chiết khấu của sách",
 		"Nhaphathanh" => "Chọn 1 nhà phát hành sách",
-		"Tennhaphathanh" => "Nhập vào tên nhà phát hành sách"
+		"Tennhaphathanh" => "Nhập vào tên nhà phát hành sách",
+		"isNumber" => "Nhập vào 1 giá trị số!!!",
+		"isNumberFrom0To100" => "Nhập vào giá trị số từ 0 - 100!!!",
+		"isDateFuture" => "Chọn giá trị ngày ở tương lai !!!"
 	);
 	
 	// list of expected fields
@@ -162,11 +166,33 @@ class Validation {
 	
 	
 	
+	public function isNumber($number = null){
+		if (!empty($number)) {
+			$result = is_numeric($number);
+			return $result;
+		}
+		return false;
+	}
+	
+	public function isNumberFrom0To100($number = null){
+		if (!empty($number)) {
+			$result = is_numeric($number) && $number <= 100 && $number >= 0;
+			return $result;
+		}
+		return false;
+	}
 	
 	
-	
-	
-	
+	public function isDateFuture($date = null){
+		$now= date('Y-m-d');
+		if($date > $now){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+
 	public function isValid() {
 		$this->process();
 		if (empty($this->_errors) && !empty($this->_post)) {

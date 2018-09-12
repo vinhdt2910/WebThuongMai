@@ -109,9 +109,21 @@ class Catalogue extends Application {
 		}
 		return false;
 	}
+
+	public function duplicateProduct($name = null, $id = null) {
+		if (!empty($name)) {
+			$sql  = "SELECT * FROM `{$this->_table_2}`
+					WHERE `Tensach` = '".$this->db->escape($name)."'";
+			$sql .= !empty($id) ? 
+					" AND `Masach` != '".$this->db->escape($id)."'" : 
+					null;
+			return $this->db->fetchOne($sql);
+		}
+		return false;
+	}
 	
 	public function duplicatePublisher($tennhaxuatban = null, $id = null) {
-		if (!empty($name)) {
+		if (!empty($tennhaxuatban)) {
 			$sql  = "SELECT * FROM `{$this->_table_3}`
 					WHERE `Tennhaphathanh` = '".$this->db->escape($tennhaxuatban)."'";
 			$sql .= !empty($id) ? 

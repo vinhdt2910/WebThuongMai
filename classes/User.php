@@ -174,7 +174,7 @@ class User extends Application {
 	public function removeUser($id = null) {
 		if (!empty($id)) {
 			$sql = "DELETE FROM `{$this->_table}`
-					WHERE `id` = '".$this->db->escape($id)."'";
+					WHERE `User_ID` = '".$this->db->escape($id)."'";
 			return $this->db->query($sql);
 		}
 	}

@@ -35,7 +35,39 @@ if ($objForm->isPost('Tensach')) {
  		'Chietkhau',
  		'Thoigianck'
 	);
+	$name = $objForm->getPost('Tensach');
+	$soluong = $objForm->getPost('Soluong');
+	$sotrang = $objForm->getPost('Sotrang');
+	$gia = $objForm->getPost('Gia');
+	$chietkhau = $objForm->getPost('Chietkhau');
+	$thoigianck = $objForm->getPost('Thoigianck');
+
+
+	if ($objCatalogue->duplicateProduct($name)) {
+		$objValid->add2Errors('name_duplicate');
+	}
 	
+	if ($objValid->isNumber($soluong) == false){
+		$objValid->add2Errors('isNumber');
+	}
+
+	if ($objValid->isNumber($sotrang) == false){
+		$objValid->add2Errors('isNumber');
+	}
+
+	if ($objValid->isNumber($gia) == false){
+		$objValid->add2Errors('isNumber');
+	}
+
+	if ($objValid->isNumberFrom0To100($chietkhau) == false){
+		$objValid->add2Errors('isNumberFrom0To100');
+	}
+
+	if($objValid->isDateFuture($thoigianck) == false){
+		$objValid->add2Errors('isDateFuture');
+	}
+
+
 	if ($objValid->isValid()) {
 		
 		if ($objCatalogue->addProduct($objValid->_post)) {
@@ -85,9 +117,10 @@ require_once('template/_header.php');
 				</tr>
 				
 				<tr>
-					<th><label for="name">Tên sách: *</label></th>
+					<th><label for="Tensach">Tên sách: *</label></th>
 					<td>
-						<?php echo $objValid->validate('name'); ?>
+						<?php echo $objValid->validate('Tensach'); ?>
+						<?php echo $objValid->validate('name_duplicate'); ?>
 						<input type="text" name="Tensach" id="Tensach" 
 							value="<?php echo $objForm->stickyText('Tensach'); ?>" class="fld" />
 					</td>
@@ -97,16 +130,18 @@ require_once('template/_header.php');
 					<th><label for="page">Số trang: *</label></th>
 					<td>
 						<?php echo $objValid->validate('Sotrang'); ?>
-						<input type="text" name="Sotrang" id="Sotrang" 
+						<?php echo $objValid->validate('isNumber'); ?>
+						<input type="number" name="Sotrang" id="Sotrang" min="1"
 							value="<?php echo $objForm->stickyText('Sotrang'); ?>" class="fld" />
 					</td>
 				</tr>
 				
 				<tr>
-					<th><label for="quatity">Số lượng sách: *</label></th>
+					<th><label for="Soluong">Số lượng sách: *</label></th>
 					<td>
 						<?php echo $objValid->validate('Soluong'); ?>
-						<input type="text" name="Soluong" id="Soluong" 
+						<?php echo $objValid->validate('isNumber'); ?>
+						<input type="number"  name="Soluong" id="Soluong" min="1"
 							value="<?php echo $objForm->stickyText('Soluong'); ?>" class="fld" />
 					</td>
 				</tr>
@@ -133,7 +168,8 @@ require_once('template/_header.php');
 					<th><label for="price">Giá: *</label></th>
 					<td>
 						<?php echo $objValid->validate('Gia'); ?>
-						<input type="text" name="Gia" id="Gia" 
+						<?php echo $objValid->validate('isNumber'); ?>
+						<input type="number" name="Gia" id="Gia" min="0"
 							value="<?php echo $objForm->stickyText('Gia'); ?>" class="fld_price" />
 					</td>
 				</tr>
@@ -142,7 +178,8 @@ require_once('template/_header.php');
 					<th><label for="price">Chiết khấu: *</label></th>
 					<td>
 						<?php echo $objValid->validate('Chietkhau'); ?>
-						<input type="text" name="Chietkhau" id="Chietkhau" 
+						<?php echo $objValid->validate('isNumberFrom0To100'); ?>
+						<input type="number" name="Chietkhau" id="Chietkhau" 
 							value="<?php echo $objForm->stickyText('Chietkhau'); ?>" class="fld" />
 					</td>
 				</tr>
@@ -151,6 +188,7 @@ require_once('template/_header.php');
 					<th><label for="price">Thời gian chiết khấu: *</label></th>
 					<td>
 						<?php echo $objValid->validate('Thoigianck'); ?>
+						<?php echo $objValid->validate('isDateFuture'); ?>
 						<input type="date" name="Thoigianck" id="Thoigianck" 
 							value="<?php echo $objForm->stickyText('Thoigianck'); ?>" class="fld" />
 					</td>

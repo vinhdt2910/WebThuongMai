@@ -28,10 +28,10 @@ if (!empty($id)) {
 			
 			require_once('template/_header.php'); 
 ?>
-<h1>Clients :: Remove</h1>
-<p>Are you sure you want to remove this client (<?php echo $user['first_name']." ".$user['last_name']; ?>)?<br />
-There is no undo!<br />
-<a href="<?php echo $yes; ?>">Yes</a> | <a href="<?php echo $no; ?>">No</a></p>
+<h1>Xóa khách hàng</h1>
+<p>Bạn có chắc chắn muốn xóa khách hàng (<?php echo $user['Hoten']; ?>) khỏi hệ thống không?<br />
+Thông tin về khách hàng sẽ mất khỏi hệ thống!!!<br />
+<a href="<?php echo $yes; ?>">Có</a> | <a href="<?php echo $no; ?>">Không</a></p>
 <?php 
 			require_once('template/_footer.php'); 
 		}

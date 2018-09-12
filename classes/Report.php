@@ -29,16 +29,32 @@ class Report extends Application {
 	
 	public function revenueByDate($fromDate = null, $toDate = null) {
 		if (!empty($fromDate) && !empty($toDate)){
-			$sql = "SELECT Sum(ct.Giamua * ct.Soluong) as Doanhthu From `{$this->_table}` as ct Join `{$this->_table_2}` as hd on ct.Mahd = hd.Mahd where hd.Ngaydat >= '$fromDate' and hd.Ngaydat <= '$toDate'";
+			$sql = "SELECT Sum(ct.Giamua * ct.Soluong) as Doanhthu From `{$this->_table}` as ct Join `{$this->_table_2}` as hd on ct.Mahd = hd.Mahd where hd.Tinhtrang = 'Duyệt' and hd.Ngaydat >= '$fromDate' and hd.Ngaydat <= '$toDate'";
 			return $this->db->fetchOne($sql);
 		}
 		else return 0;
 	}
 
 
-	public function numberOfOrder($fromDate = null, $toDate = null) {
+	public function numberOfOrderConfirm($fromDate = null, $toDate = null) {
 		if (!empty($fromDate) && !empty($toDate)){
-			$sql = "SELECT count(Mahd) as numberOfOrder From `{$this->_table_2}` where Ngaydat >= '$fromDate' and Ngaydat <= '$toDate'";
+			$sql = "SELECT count(Mahd) as numberOfOrder From `{$this->_table_2}` where Ngaydat >= '$fromDate' and Ngaydat <= '$toDate' and Tinhtrang = 'Duyệt'";
+			return $this->db->fetchOne($sql);
+		}
+		else return 0;
+	}
+
+	public function numberOfOrderCancel($fromDate = null, $toDate = null) {
+		if (!empty($fromDate) && !empty($toDate)){
+			$sql = "SELECT count(Mahd) as numberOfOrder From `{$this->_table_2}` where Ngaydat >= '$fromDate' and Ngaydat <= '$toDate' and Tinhtrang = 'Hủy'";
+			return $this->db->fetchOne($sql);
+		}
+		else return 0;
+	}
+
+	public function numberOfOrderProcess($fromDate = null, $toDate = null) {
+		if (!empty($fromDate) && !empty($toDate)){
+			$sql = "SELECT count(Mahd) as numberOfOrder From `{$this->_table_2}` where Ngaydat >= '$fromDate' and Ngaydat <= '$toDate' and Tinhtrang = 'Chờ xử lý'";
 			return $this->db->fetchOne($sql);
 		}
 		else return 0;

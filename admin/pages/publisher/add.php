@@ -38,12 +38,10 @@ require_once('template/_header.php');
 		<div style="background: #FCFCFC; border: 1px solid #8EAEC3; padding: 10px; height: auto; margin-bottom: 30px">
 			<table cellpadding="0" cellspacing="0" border="0" class="tbl_insert">
 				<tr>
-					<th><label for="name">Tên nhà phát hành: *</label></th>
+					<th><label for="Tennhaphathanh">Tên nhà phát hành: *</label></th>
 					<td>
-						<?php 
-							echo $objValid->validate('Tennhaphathanh'); 
-							echo $objValid->validate('name_duplicate'); 
-						?>
+						<?php echo $objValid->validate('Tennhaphathanh'); ?>
+						<?php echo $objValid->validate('name_duplicate'); ?>
 						<input type="text" name="Tennhaphathanh" id="Tennhaphathanh" 
 							value="<?php echo $objForm->stickyText('Tennhaphathanh'); ?>" 
 							class="fld" />

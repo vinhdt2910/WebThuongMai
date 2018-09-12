@@ -281,7 +281,12 @@ class Order extends Application {
 	}
 	
 	
-	
+	public function updateQuatityOfProduct($masach = null, $quatity = null){
+		if(!empty($masach) && !empty($quatity)){
+			$sql = "UPDATE `book` set Soluong = Soluong - $quatity WHERE Masach = $masach";
+			return $this->db->query($sql);
+		}
+	}
 	
 	
 	

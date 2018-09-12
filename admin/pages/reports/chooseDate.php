@@ -11,18 +11,24 @@ if ($objForm->isPost('fromDate')) {
 	$toDate = $objForm->getPost('toDate');
 	if ($objValid->isValid()) {
 		$revenue = $objReport->revenueByDate($fromDate, $toDate);
-		$numberOfOrder = $objReport->numberOfOrder($fromDate, $toDate);
+		$numberOfOrderConfirm = $objReport->numberOfOrderConfirm($fromDate, $toDate);
+		$numberOfOrderCancel = $objReport->numberOfOrderCancel($fromDate, $toDate);
+		$numberOfOrderProcess = $objReport->numberOfOrderProcess($fromDate, $toDate);
 		$numberOfClient = $objReport->numberOfClient($fromDate, $toDate);
 	}
 	else {
 		$revenue['Doanhthu'] = 0;
-		$numberOfOrder['numberOfOrder'] = 0;
+		$numberOfOrderConfirm['numberOfOrder'] = 0;
+		$numberOfOrderCancel['numberOfOrder'] = 0;
+		$numberOfOrderProcess['numberOfOrder'] = 0;
 		$numberOfClient['numberOfClient'] = 0;
 	}
 }
 else {
 	$revenue['Doanhthu'] = 0;
-	$numberOfOrder['numberOfOrder'] = 0;
+	$numberOfOrderConfirm['numberOfOrder'] = 0;
+	$numberOfOrderCancel['numberOfOrder'] = 0;
+	$numberOfOrderProcess['numberOfOrder'] = 0;
 	$numberOfClient['numberOfClient'] = 0;
 }
 
@@ -78,12 +84,22 @@ require_once('template/_header.php');
 					<table cellpadding="0" cellspacing="0" border="0" class="tbl_insert" style="margin-left: 20px !important; float: left;">
 						<tr>
 							<td><label> Doanh thu bán hàng: </label></td>
-							<td><?php echo $revenue['Doanhthu']; ?> đồng</td>
+							<td><?php echo number_format($revenue['Doanhthu'], 0); ?> đ</td>
 						</tr>
 
 						<tr>
-							<td><label> Tổng số đơn hàng: </label></td>
-							<td><?php echo $numberOfOrder['numberOfOrder']; ?></td>
+							<td><label> Tổng số đơn hàng được duyệt: </label></td>
+							<td><?php echo $numberOfOrderConfirm['numberOfOrder']; ?></td>
+						</tr>
+
+						<tr>
+							<td><label> Tổng số đơn hàng chờ xử lý: </label></td>
+							<td><?php echo $numberOfOrderProcess['numberOfOrder']; ?></td>
+						</tr>
+
+						<tr>
+							<td><label> Tổng số đơn hàng hủy: </label></td>
+							<td><?php echo $numberOfOrderCancel['numberOfOrder']; ?></td>
 						</tr>
 
 						<tr>
