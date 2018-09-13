@@ -1,9 +1,16 @@
 <?php
 session_start();
 include('connect.php');
+$userid='';
 
 if (isset($_SESSION['userid'])) {
     $userid = $_SESSION['userid'];
+}
+else {
+    $userid = $_SESSION['guest'];
+} 
+
+
     $masach=$_POST["bookid"];
     $sl=$_POST["quanlity"];
     $giamua=$_POST["giamua"];
@@ -65,14 +72,15 @@ if (isset($_SESSION['userid'])) {
         mysqli_query($conn, $sqladdbook);
     }
 
-}else  {
-    $sql="insert into giohang (MaKH,Ngaydat) values('".$userid ."',CURRENT_DATE())";
-     mysqli_query($conn, $sql);
-     $sql5 = "SELECT Max(Magiohang) as magio FROM `giohang`";
-     $query5 = mysqli_query($conn, $sql5);
-     $magiohang=mysqli_fetch_array( $query5);
-     $sqladdbook="insert into chitietgiohang (Magiohang,Masach,Soluong,Giamua) values('".$magiohang['magio']."','".$masach."',".$sl.",".$giamua.")";
-     mysqli_query($conn, $sqladdbook);
-}
+// }
+// else  {
+//     $sql="insert into giohang (MaKH,Ngaydat) values('".$userid ."',CURRENT_DATE())";
+//      mysqli_query($conn, $sql);
+//      $sql5 = "SELECT Max(Magiohang) as magio FROM `giohang`";
+//      $query5 = mysqli_query($conn, $sql5);
+//      $magiohang=mysqli_fetch_array( $query5);
+//      $sqladdbook="insert into chitietgiohang (Magiohang,Masach,Soluong,Giamua) values('".$magiohang['magio']."','".$masach."',".$sl.",".$giamua.")";
+//      mysqli_query($conn, $sqladdbook);
+// }
 
 ?>

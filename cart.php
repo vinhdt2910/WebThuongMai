@@ -20,8 +20,10 @@
             </tr>
             
         <?php
+                $userid ='';
                 if (isset( $_SESSION['userid'])){
-                    $userid = $_SESSION['userid'];
+                    $userid = $_SESSION['userid'];}
+                    else $userid = $_SESSION['guest'];
                 $sbook = "SELECT ct.Magiohang, ct.Masach,ct.Soluong, ct.Giamua,b.Tensach,b.anh,b.Soluong as 'Slton' FROM `chitietgiohang` ct JOIN `giohang` g on ct.Magiohang = g.Magiohang join `book` b on b.Masach=ct.Masach where g.Makh = '".$userid."'";
                     $re2 = mysqli_query($conn, $sbook);
                     //var_dump($sbook) ; exit();
@@ -73,9 +75,7 @@
             </table>
             <br />
         </div>
-        <?php
-                }
-                ?>
+       
         <div class="buttons">
             <table>
                 <tr>

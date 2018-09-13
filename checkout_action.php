@@ -2,9 +2,13 @@
 session_start();
 include('connect.php');
 include('sendmail.php');
-
+$userid='';
 if (isset($_SESSION['userid'])) {
     $userid = $_SESSION['userid'];
+}
+else {
+    $userid = $_SESSION['guest'];
+}  
 
     $sqlemail="SELECT * FROM `user` WHERE User_ID='".$userid."'";
     $queryemail = mysqli_query($conn, $sqlemail);
@@ -41,8 +45,6 @@ if (isset($_SESSION['userid'])) {
 
     $hang=' ';
     $tongsotien = 0;
-    if (isset($_SESSION['userid'])) {
-        $userid = $_SESSION['userid'];
         $sbook = "SELECT ct.Mahd, ct.Masach,ct.Soluong, ct.Giamua,b.Tensach,b.anh FROM `cthoadon` ct JOIN `hoadon` g on ct.Mahd = g.Mahd join `book` b on b.Masach=ct.Masach where g.Mahd='".$mahd['mahd']."'AND g.Makh = '".$userid."'";
         $re2 = mysqli_query($conn, $sbook);
         $pos = 1;
@@ -58,9 +60,7 @@ if (isset($_SESSION['userid'])) {
             <td class="cotSo">'.number_format(($row['Soluong']*$row['Giamua']),0,",",".").'</td>
             </tr>';
         }       
-    }
-
-
+    
     $content='
     <!DOCTYPE html>
     <html lang="vi">
@@ -261,5 +261,5 @@ if (sendMail($title,$content,$mTo)==1)
 }
    
         
-}
+
 ?>

@@ -1,6 +1,15 @@
 ﻿<?php
 session_start();
-include('connect.php')
+include('connect.php');
+if (!isset($_SESSION['guest'])) {
+    $sqlMaxUser="SELECT Max(User_ID)+1 as userid FROM `user`";
+
+    $query = mysqli_query($conn, $sqlMaxUser);
+    $makhach=mysqli_fetch_array( $query);
+    $_SESSION['guest']=$makhach['userid'];
+   
+ }
+
 ?>
 <!DOCTYPE html>
 <html lang="vi">
@@ -69,6 +78,7 @@ include('connect.php')
                     <a href="khuyen-mai-sp"><i class="fa fa-paypal"></i> Khuyến mại</a>
                     <a href="lien-he-vi"><i class="fa fa-envelope"></i> Liên hệ</a>
                     <?php
+                    
                     if (isset($_SESSION['userid'])) {
                     ?>
                     <a href="index.php?route=inforuser" id="tab_inforUser"> <i class="fa fa-user-secret"></i><?php echo $_SESSION['name'];?></a>
@@ -86,8 +96,14 @@ include('connect.php')
                     <i style="color: #000000; font-size: 18px" class="fa fa-shopping-cart"></i>
                      <a href="index.php?route=cart" >
                      <?php
-                      if (isset($_SESSION['userid'])) {
+                    $userid ='';
+                      if (isset($_SESSION['userid'])) 
+                      {
                         $userid = $_SESSION['userid'];
+                    }
+                        else {
+                            $userid = $_SESSION['guest'];
+                        }
            $sql4="SELECT Magiohang From giohang where Makh='". $userid."'" ;
            $query4= mysqli_query($conn, $sql4);
            $magio=mysqli_fetch_array( $query4);
@@ -97,9 +113,7 @@ include('connect.php')
                      
                 ?>
                          <label  id="tab_checkout">(<?php echo $magiohang["soluong"] ?>sản phẩm)<?php echo number_format($magiohang["tongtien"]) ?>đ</label>
-                         <?php  } else {?>
-                            <label  id="tab_checkout">(0 sản phẩm)0.000đ</label>
-                            <?php  }?>
+                        
                     </a>
                 </div>
             </div>
