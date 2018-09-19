@@ -193,7 +193,26 @@ if (isset($_SESSION['userid'])) {
             $("#Diachi").focus();
             return false;
         }
-        if (password.length < 3 || password.length > 20) {
+       
+if(password.length===0){
+    $.ajax({
+            url: "checkinfo.php",
+            method: "POST",
+            data: { Hoten: Hoten, email: email, Sodt: Sodt, Diachi: Diachi },
+            success: function (response) {
+                if (response == "1") {// kiem tra du lieu ra
+                    alert("Thay đổi thông tin thành công");
+                  
+                }
+                
+                else {
+                    error.html("Lỗi hệ thống !");
+                }
+            }
+        });
+
+}else{
+    if (password.length < 3 || password.length > 20) {
             error.html("Mật khẩu phải lớn hơn 3 và nhỏ hơn 20 ký tự!");
             $("#password").focus();
             return false;
@@ -204,24 +223,20 @@ if (isset($_SESSION['userid'])) {
             $("#confirm").focus();
             return false;
         }
-
         $.ajax({
-            url: "check_dang_ky.php",
+            url: "checkinfo.php",
             method: "POST",
             data: { Hoten: Hoten, password: password, email: email, Sodt: Sodt, Diachi: Diachi },
             success: function (response) {
                 if (response == "1") {// kiem tra du lieu ra
-                    alert("Tài khoản đã đăng ký thành công");
-                    window.location = "index.php";
-                }
-                else if (response == "2") {
-                    error.html("Email đã tồn tại !");
+                    alert("Thay đổi thông tin thành công");
                 }
                 else {
                     error.html("Lỗi hệ thống !");
                 }
             }
         });
+    }
 
     });
 

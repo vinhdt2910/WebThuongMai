@@ -85,10 +85,7 @@ $.ajax({
         if (response == "2") {// kiem tra du lieu ra
          alert("Đăng nhập thành công");
          window.location="index.php";    
-        } else 
-        if (response == "1"){
-            window.location="admin.php"; 
-        }
+        } 
         else{
             error.html("Tên đăng nhập hoặc mật khẩu không chính xác !");
         }

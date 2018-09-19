@@ -5,14 +5,7 @@ class Email {
 
 	
 	private $objMailer;
-	
-	
-	
-	
-	
-	
-	
-	
+
 	public function __construct() {
 		
 		$this->objMailer = new PHPMailer();
@@ -34,7 +27,7 @@ class Email {
 		// $mPass = 'gunner2603';       //mat khau email cua ban
 		$nFrom = 'Tusachthieunhivn';
 		$mFrom = 'tusachthieunhivn@gmail.com';  //dia chi email cua ban 
-		$mPass = 'namdepdai';   
+		$mPass = 'namnguyen95';   
 		$mail             = new PHPMailer();
 		$body             = $content;
 		$mail->IsSMTP(); 
@@ -74,7 +67,7 @@ class Email {
 
 		$nFrom = 'Tusachthieunhivn';
 		$mFrom = 'tusachthieunhivn@gmail.com';  //dia chi email cua ban 
-		$mPass = 'namdepdai';   
+		$mPass = 'namnguyen95';   
 		$mail             = new PHPMailer();
 		$body             = $content;
 		$mail->IsSMTP(); 

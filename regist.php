@@ -121,7 +121,7 @@
         }
 
         if (confirm != password) {
-            error.html("Mật khẩu phải lớn hơn 3 và nhỏ hơn 20 ký tự!");
+            error.html("Mật khẩu nhập lại sai!");
             $("#confirm").focus();
             return false;
         }

@@ -12,7 +12,7 @@ function sendMail($title, $content, $mTo){
 
     $nFrom = 'Tusachthieunhivn';
     $mFrom = 'tusachthieunhivn@gmail.com';  //dia chi email cua ban 
-    $mPass = 'namdepdai';       //mat khau email cua ban
+    $mPass = 'namnguyen95';       //mat khau email cua ban
     $mail             = new PHPMailer();
     $body             = $content;
     $mail->IsSMTP(); 
@@ -49,7 +49,7 @@ function sendMail($title, $content, $mTo){
 function sendMailAttachment($title, $content, $nTo, $mTo,$diachicc='',$file,$filename){
     $nFrom = 'Tusachthieunhivn';
     $mFrom = 'tusachthieunhivn@gmail.com';  //dia chi email cua ban 
-    $mPass = 'namdepdai';       //mat khau email cua ban
+    $mPass = 'namnguyen95';       //mat khau email cua ban
     $mail             = new PHPMailer();
     $body             = $content;
     $mail->IsSMTP(); 
