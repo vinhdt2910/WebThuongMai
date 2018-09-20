@@ -41,7 +41,7 @@ if (!empty($id)) {
 					}
 					if	($status=='1')
 					{
-						$email->sendMail('Email xác nhận hủy đơn hàng!!!', $email->wrapEmail('Cảm ơn bạn đã mua hàng của nhà sách, đơn hàng của bạn đã được hủy theo nhu cầu!!!'), $user['Email']);
+						$email->sendMail('Email xác nhận hủy đơn hàng!!!', $email->wrapEmail('Đơn hàng '.$id.'của bạn đã được hủy theo yêu cầu!!!'), $user['Email']);
 					}			
 					Helper::redirect('/admin'.Url::getCurrentUrl(array('action', 'id')).'&action=edited');					
 				} else {

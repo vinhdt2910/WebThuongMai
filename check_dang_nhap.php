@@ -5,7 +5,7 @@ include('connect.php');
 	$username = $_POST["username"];
     $password = md5($_POST["password"]);
     
-     $sql1 = "select * from user where Email = '$username' and Trangthai = 1 ";
+     $sql1 = "select * from user where Email = '$username' and Loainguoidung=2 and Trangthai = 1 ";
 
      $query1 = mysqli_query($conn, $sql1);
 

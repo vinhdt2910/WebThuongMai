@@ -5,7 +5,11 @@ if (!isset($_SESSION['guest'])) {
     $sqlMaxUser="SELECT Max(User_ID)+1 as userid FROM `user`";
     $query = mysqli_query($conn, $sqlMaxUser);
     $makhach=mysqli_fetch_array( $query);
-    $_SESSION['guest']=$makhach['userid'];
+   
+    if($makhach['userid']==null){
+        $_SESSION['guest']=1;
+    }else{
+    $_SESSION['guest']=$makhach['userid'];}
 
     $sqlsgio="SELECT Magiohang as magio FROM `giohang` where Makh='".$makhach['userid']."'";
     $query2 = mysqli_query($conn, $sqlsgio);

@@ -9,7 +9,7 @@ $Sodt = $_POST["Sodt"];
 $Diachi = $_POST["Diachi"];
 
 
-$sqlemail="SELECT * FROM `user` WHERE Email='".$email."'";
+$sqlemail="SELECT * FROM `user` WHERE Loainguoidung=2 and Email='".$email."' ";
 $queryemail = mysqli_query($conn, $sqlemail);
 $rowcount2=mysqli_num_rows($queryemail);     
 if  ( $rowcount2>0)

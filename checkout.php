@@ -79,11 +79,11 @@
                 <div id="reg-cpanle" style="display:none">
                     <div class="left">
                         <span class="required">*</span> Mật khẩu:<br>
-                        <input name="password" value="" class="small-field" type="password"><br>
+                        <input id="password" value="" class="small-field" type="password"><br>
                     </div>
                     <div class="right">
                         <span class="required">*</span> Xác nhận mật khẩu: <br>
-                        <input name="confirm" value="" class="small-field" type="password"><br>
+                        <input id="confirm" value="" class="small-field" type="password"><br>
                     </div>
 
                 </div>
