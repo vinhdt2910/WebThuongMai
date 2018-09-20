@@ -41,8 +41,6 @@
 
             <div class="item"><a href="#"><img src="image/data/banner3.jpg" data-thumb="image/data/banner 3.jpg" title="" alt="" /></a></div>
 
-            <div class="item"><a href="#"><img src="image/data/banner4.jpg" data-thumb="image/data/banner 4.jpg" title="" alt="" /></a></div>
-
         </div>
         <script src="Template/css/owl-carousel/owl.carousel.js"></script>
 
