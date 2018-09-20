@@ -33,15 +33,15 @@
 
         <div id="owl-demo" class="owl-carousel owl-theme">
 
-            <div class="item"><a href="#"><img src="http://thanhhabooks.com/image/data/banner slide.jpg" data-thumb="http://thanhhabooks.com/image/data/banner slide.jpg" title="" alt="" /></a></div>
+            <div class="item"><a href="#"><img src="image/data/bannerslide.jpg" data-thumb="image/data/banner slide.jpg" title="" alt="" /></a></div>
 
-            <div class="item"><a href="#"><img src="http://thanhhabooks.com/image/data/banner 1.jpg" data-thumb="http://thanhhabooks.com/image/data/banner 1.jpg" title="" alt="" /></a></div>
+            <div class="item"><a href="#"><img src="image/data/banner1.jpg" data-thumb="image/data/banner 1.jpg" title="" alt="" /></a></div>
 
-            <div class="item"><a href="#"><img src="http://thanhhabooks.com/image/data/banner 2.jpg" data-thumb="http://thanhhabooks.com/image/data/banner 2.jpg" title="" alt="" /></a></div>
+            <div class="item"><a href="#"><img src="image/data/banner2.jpg" data-thumb="image/data/banner 2.jpg" title="" alt="" /></a></div>
 
-            <div class="item"><a href="#"><img src="http://thanhhabooks.com/image/data/banner 3.jpg" data-thumb="http://thanhhabooks.com/image/data/banner 3.jpg" title="" alt="" /></a></div>
+            <div class="item"><a href="#"><img src="image/data/banner3.jpg" data-thumb="image/data/banner 3.jpg" title="" alt="" /></a></div>
 
-            <div class="item"><a href="#"><img src="http://thanhhabooks.com/image/data/banner 4.jpg" data-thumb="http://thanhhabooks.com/image/data/banner 4.jpg" title="" alt="" /></a></div>
+            <div class="item"><a href="#"><img src="image/data/banner4.jpg" data-thumb="image/data/banner 4.jpg" title="" alt="" /></a></div>
 
         </div>
         <script src="Template/css/owl-carousel/owl.carousel.js"></script>
