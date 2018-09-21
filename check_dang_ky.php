@@ -44,7 +44,15 @@ else{
     }
     else
     {
+        $sqlMaxUser="SELECT Max(User_ID) as userid FROM `user`";
+    $query = mysqli_query($conn, $sqlMaxUser);
+    $makhach=mysqli_fetch_array( $query);
+   
+    if($_SESSION['guest']==$makhach['userid']){
+        $_SESSION['guest']=$makhach['userid']+1;
+    }
      $sql1 = "INSERT INTO user (User_ID, Email, Password, Hoten, Sodt, Diachi, Loainguoidung, Trangthai) VALUES ('".$_SESSION['guest']."', '$email', '', '$Hoten', '$Sodt', '$Diachi', '1', '1')";
+
      $query1 = mysqli_query($conn, $sql1);
      echo 1; exit();
  }

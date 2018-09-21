@@ -244,10 +244,10 @@ button {
   <td colspan="5">&nbsp;</td>
 </tr>
   <tr>
-    <td colspan="5" style="font-size:10px;border-top:1px solid #069" align="center"><a style="color:#069;font-weight:bold;text-decoration:none" target="_blank" >Tủ sách thiếu nhi</a> được hỗ trợ bởi: <a style="text-decoration:none;color:#374953" target="_blank" >Thanh Hà Books</a></td>
+    <td colspan="5" style="font-size:10px;border-top:1px solid #069" align="center"><a style="color:#069;font-weight:bold;text-decoration:none" target="_blank" >Tủ sách thiếu nhi</a></td>
   </tr>
   </table>
-  Cảm ơn bạn đã quan tâm đến sản phẩm Thanh Hà Books của chúng tôi. Chúng tôi đã nhận được đơn hàng của bạn và sẽ được xử lý sau khi bạn xác nhận thanh toán.
+  Cảm ơn bạn đã quan tâm đến sản phẩm Tủ sách thiếu nhi của chúng tôi. Chúng tôi đã nhận được đơn hàng của bạn và sẽ được xử lý sau khi bạn xác nhận thanh toán.
 
 </div>
 </body>

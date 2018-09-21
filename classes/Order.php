@@ -248,7 +248,7 @@ class Order extends Application {
 		$sql .= !empty($srch) ?
 				" WHERE `Mahd` = '".$this->db->escape($srch)."'" :
 				null;
-		$sql .= " ORDER BY `Ngaydat` DESC";
+		$sql .= " ORDER BY `Mahd` DESC";
 		return $this->db->fetchAll($sql);
 	}
 	
@@ -271,11 +271,11 @@ class Order extends Application {
 	
 	
 	
-	public function updateOrder($id = null, $array = null) {
-		if (!empty($id) && !empty($array) && is_array($array) && array_key_exists('Tinhtrang', $array)) {
+	public function updateOrder($id = null, $status = null) {
+		if (!empty($id) && !empty($status)) {
 			$sql = "UPDATE `{$this->_table}`
-					SET `Tinhtrang` = '".$this->db->escape($array['Tinhtrang'])."'
-					WHERE `Mahd` = '".$this->db->escape($id)."'";
+					SET `Tinhtrang` = $status
+					WHERE `Mahd` = $id";
 			return $this->db->query($sql);
 		}
 	}
@@ -288,6 +288,17 @@ class Order extends Application {
 		}
 	}
 	
+	public function checkQuantity($masach = null, $quatity = null){
+		if(!empty($masach) && !empty($quatity)){
+			$sql = "SELECT `Soluong` FROM `book` WHERE 	`Masach` = $masach";
+			$result = $this->db->fetchOne($sql);
+			
+			if($result['Soluong'] >= $quatity){
+				return true;
+			}
+			return false;
+		}
+	}
 	
 	
 	

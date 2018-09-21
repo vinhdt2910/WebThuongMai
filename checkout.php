@@ -251,7 +251,6 @@
                 data: { Hoten: Hoten, password: password, email: email , Sodt: Sodt,Diachi: Diachi},
                 success: function (response) {
                     if (response == "1") {
-
                         $.ajax({
                             url: "checkout_action.php",
                             method: "POST",

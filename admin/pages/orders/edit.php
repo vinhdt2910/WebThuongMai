@@ -1,6 +1,7 @@
 <?php 
 $id = Url::getParam('id');
 $email = new Email();
+$check = true;
 if (!empty($id)) {
 	
 	$objOrder = new Order();
@@ -32,21 +33,46 @@ if (!empty($id)) {
 			
 			if ($objValid->isValid()) {
 				
-				if ($objOrder->updateOrder($id, $objValid->_post)) {
+				//if ($objOrder->updateOrder($id, $objValid->_post)) {
 					if ($status == '2'){
+
 						foreach($items as $item) { 
-							$objOrder->updateQuatityOfProduct($item['Masach'], $item['Soluong']);
+							// var_dump($objOrder->checkQuantity($item['Masach'], $item['Soluong']));
+							// 	exit();
+							if($objOrder->checkQuantity($item['Masach'], $item['Soluong']) == false){
+								 
+								$check=false;
+								// var_dump($check);
+								// exit();
+								break;
+							}
+						}
+						 // var_dump($check);
+							// 	exit();
+						if($check==true)
+						{
+							// var_dump("abc");
+							//  exit();
+							$objOrder->updateOrder($id, $status);
+							foreach($items as $item) 
+							{ 
+								$objOrder->updateQuatityOfProduct($item['Masach'], $item['Soluong']);
+							}
+						}else{
+							Helper::redirect('/admin'.Url::getCurrentUrl(array('action', 'id')).'&action=edited-failed');
 						}
 						
 					}
+
 					if	($status=='1')
 					{
+						$objOrder->updateOrder($id, $status);
 						$email->sendMail('Email xác nhận hủy đơn hàng!!!', $email->wrapEmail('Đơn hàng '.$id.'của bạn đã được hủy theo yêu cầu!!!'), $user['Email']);
 					}			
 					Helper::redirect('/admin'.Url::getCurrentUrl(array('action', 'id')).'&action=edited');					
-				} else {
-					Helper::redirect('/admin'.Url::getCurrentUrl(array('action', 'id')).'&action=edited-failed');
-				}
+				//} else {
+				// 	Helper::redirect('/admin'.Url::getCurrentUrl(array('action', 'id')).'&action=edited-failed');
+				// }
 				
 			}
 			
@@ -114,7 +140,7 @@ if (!empty($id)) {
 							<?php
 								echo Helper::encodeHtml($user['Hoten']).'<br />';
 								echo Helper::encodeHtml($user['Diachi']).'<br />';
-								echo $user['Email'];
+								echo $user['Email'].'<br />';
 								echo $user['Sodt'];
 								echo '</a>';
 							?>
